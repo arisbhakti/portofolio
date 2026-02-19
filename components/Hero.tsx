@@ -31,16 +31,17 @@ export default function Hero() {
             </button>
           </div>
         </div>
-        <div className="text-center relative bg-black" id="hero-div">
+        <div className="text-center relative bg-blac h-[513px]" id="hero-div">
           <Image
             src="/hero-image.svg"
             alt="Hero Image"
             width={392}
             height={466}
-            className="w-98 h-116.5 z-10 mix-blend-luminosity"
+            className="w-89.75 h
+            -[476px] z-10 mix-blend-luminosity relative mx-auto top-3 "
           />
-          {/* <div className="pointer-events-none absolute inset-0 z-20 bg-[linear-gradient(to_bottom,rgba(0,0,0,0)_0%,#000000_88%)]"></div> */}
-          <div className="absolute inset-0 z-20 pointer-events-none bg-linear-to-b from-black/30 to-black" />
+
+          <div className="absolute inset-0 z-20 pointer-events-none bg-linear-to-b from-black/50 to-black" />
         </div>
       </div>
     </>
