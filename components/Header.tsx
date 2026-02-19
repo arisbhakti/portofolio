@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <div className="w-full h-20 box-border border-b border-neutral-800 flex flex-row items-center justify-between px-4 md:px-32">
+    <div className="w-full h-20 box-border border-b border-neutral-800 flex flex-row items-center justify-between px-4 md:px-32 fixed z-40 bg-black">
       <div className="flex flex-row items-center justify-center gap-2.25 md:gap-2">
         <div className="w-6 md:w-10 border box-border border-white h-px"></div>
         <span className="text-primary-200 font-bold text-md md:text-xl leading-text-xl md:pl-2">
