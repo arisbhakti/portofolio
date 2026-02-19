@@ -102,12 +102,12 @@
   --text-display-xl: var(--font-size-display-xl);
   --text-display-2xl: var(--font-size-display-2xl);
   --text-display-3xl: var(--font-size-display-3xl);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-red-hat-display);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-red-hat-display), Arial, Helvetica, sans-serif;
 }
