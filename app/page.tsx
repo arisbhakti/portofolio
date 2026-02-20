@@ -1,5 +1,6 @@
 "use client";
 
+import AboutMe from "@/components/AboutMe";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -11,6 +12,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Services />
+      <AboutMe />
     </main>
   );
 }
