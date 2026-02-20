@@ -2,7 +2,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div
-      className="relative z-30 w-full bg-black md:h-218.5
+      className="relative z-30 w-full bg-black md:h-218.5 mt-20 md:mt-0
     "
     >
       <div className="relative mt-0 common-padding ">

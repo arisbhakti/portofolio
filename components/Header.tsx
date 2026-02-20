@@ -1,9 +1,28 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 1);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="fixed z-50 flex h-20 w-full flex-row items-center justify-between border-b border-neutral-800 bg-black px-4 box-border md:bg-transparent md:px-32">
+    <div
+      className={`fixed z-50 flex h-20 w-full flex-row items-center justify-between border-b border-neutral-800 bg-black px-4 box-border transition-colors duration-300 md:px-32 ${
+        isScrolled ? "md:bg-black" : "md:bg-transparent"
+      }`}
+    >
       <div className="flex flex-row items-center justify-center gap-2.25 md:gap-2">
         <div className="w-6 md:w-10 border box-border border-white h-px"></div>
         <span className="text-primary-200 font-bold text-md md:text-xl leading-text-xl md:pl-2">
