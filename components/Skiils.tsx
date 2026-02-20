@@ -57,10 +57,7 @@ export default function Skiils() {
         </div>
       </div>
       {/* Progress Skiils */}
-      <div
-        className="h-[317.62px] w-full md:h-[524px] md:flex-1"
-        id="progress-div"
-      >
+      <div className="h-[317.62px] w-full md:h-131 md:flex-1" id="progress-div">
         <div className="flex h-full flex-col justify-between md:justify-normal md:gap-6">
           {progressItems.map((item, index) => (
             <div
@@ -85,7 +82,7 @@ export default function Skiils() {
                   </span>
                 </div>
               </div>
-              <span className="w-13 text-right text-sm leading-text-sm text-neutral-25 font-semibold md:text-xl md:leading-text-xl text-white">
+              <span className="w-13 text-right text-sm leading-text-sm font-semibold md:text-xl md:leading-text-xl text-white">
                 {item.value}%
               </span>
             </div>
