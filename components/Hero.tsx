@@ -1,9 +1,8 @@
-import React from "react";
 import Image from "next/image";
 export default function Hero() {
   return (
     <div
-      className="relative z-30 w-full bg-black md:h-[874px]
+      className="relative z-30 w-full bg-black md:h-218.5
     "
     >
       <div className="relative mt-0 common-padding ">
@@ -24,7 +23,7 @@ export default function Hero() {
               <span className="text-primary-200">INTERACTIVE</span> WEB
               EXPERIENCES.
             </div>
-            <div className="text-neutral-400 text-lg leading-text-lg md:text-xl md:leading-text-xl md:w-[597px]">
+            <div className="text-neutral-400 text-lg leading-text-lg md:text-xl md:leading-text-xl md:w-149.25">
               Bridging creativity and functionality to deliver stunning,
               user-friendly web applications
             </div>
@@ -36,7 +35,7 @@ export default function Hero() {
       </div>
 
       <div
-        className="relative h-[513px] bg-black text-center md:absolute md:top-0 md:right-0 md:h-[881px] md:w-[661px] overflow-hidden "
+        className="relative h-128.25 bg-black text-center md:absolute md:top-0 md:right-0 md:h-220.25 md:w-165.25 overflow-hidden "
         id="hero-div"
       >
         {/* green color */}
@@ -48,7 +47,7 @@ export default function Hero() {
           width={392}
           height={466}
           //   className="relative z-10 mx-auto -top-1 right-2 h-[476px] w-[359px] -rotate-2 mix-blend-luminosity brightness-110 contrast-110 md:absolute md:right-[30px] md:top-[66px] md:h-[872px] md:w-[658px]  md:brightness-115 md:contrast-110"
-          className="relative z-10 mx-auto -top-[3.9px] right-2 w-89.75 h-119 mix-blend-luminosity brightness-112 contrast-110 -rotate-2 md:absolute md:right-[20px]  md:h-[872px] md:w-[658px]  "
+          className="relative z-10 mx-auto -top-[3.9px] right-2 w-89.75 h-119 mix-blend-luminosity brightness-112 contrast-110 -rotate-2 md:absolute md:right-5  md:h-218 md:w-164.5  "
         />
 
         {/* tint + fade */}
