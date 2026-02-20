@@ -6,7 +6,7 @@ export default function Hero() {
     "
     >
       <div className="relative mt-0 common-padding ">
-        <div className="w-px bg-neutral-800 absolute left-74 h-113 z-0 md:hidden"></div>
+        <div className="w-px bg-neutral-800 absolute left-74 h-104 z-0 md:hidden"></div>
 
         {/* Hero Text , text & button */}
         <div className="flex flex-col gap-10 py-10 md:py-0 z-40 md:gap-15 md:top-55.25 md:relative md:w-201.75">
