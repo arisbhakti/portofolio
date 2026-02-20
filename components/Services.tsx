@@ -31,7 +31,7 @@ const services = [
 export default function Services() {
   return (
     <div
-      className="relative z-30 w-full bg-black py-10 md:py-30 common-padding flex flex-col gap-6 md:gap-16
+      className="common-padding md:py-30! flex flex-col gap-6 md:gap-16
     "
     >
       {/* Header */}

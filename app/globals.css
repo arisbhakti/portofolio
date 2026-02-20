@@ -55,7 +55,6 @@
   --font-size-display-xl: 40px;
   --font-size-display-2xl: 48px;
   --font-size-display-3xl: 56px;
-  
 }
 
 @theme inline {
@@ -114,5 +113,5 @@ body {
 }
 
 .common-padding {
-  @apply px-4 md:px-32;
+  @apply px-4 md:px-32 relative z-30 w-full bg-black py-10 md:py-20;
 }

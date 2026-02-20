@@ -5,7 +5,7 @@ export default function Hero() {
       className="relative z-30 w-full bg-black md:h-218.5 mt-20 md:mt-0
     "
     >
-      <div className="relative mt-0 common-padding ">
+      <div className="relative mt-0 px-4 md:px-32">
         <div className="w-px bg-neutral-800 absolute left-74 h-104 z-0 md:hidden"></div>
 
         {/* Hero Text , text & button */}
