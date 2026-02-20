@@ -2,12 +2,12 @@ import Image from "next/image";
 export default function AboutMe() {
   return (
     <div
-      className="flex flex-col gap-0
+      className="flex flex-col gap-0 relative 
     "
     >
       {/* title */}
       <div className="common-padding flex flex-col gap-4 md:gap-16 ">
-        <div className="flex flex-col gap-4 items-center justify-center w-full">
+        <div className="flex flex-col gap-4 items-center justify-center md:w-296 self-center">
           <span className="font-medium text-text-md leading-text-md text-primary-200 md:text-lg md:leading-text-lg text-center">
             About Me
           </span>
@@ -78,6 +78,12 @@ export default function AboutMe() {
           <div className="size-[34.5px] bg-primary-400 col-start-2 row-start-2"></div>
           <div className="size-[34.5px] bg-primary-400 col-start-1 row-start-3"></div>
         </div>
+      </div>
+      {/* 3 boxes */}
+      <div className="absolute grid-cols-2 grid-rows-3 bottom-0 z-30  gap-0 hidden md:grid">
+        <div className="size-[34.5px] bg-primary-400 col-start-1 row-start-1"></div>
+        <div className="size-[34.5px] bg-primary-400 col-start-2 row-start-2"></div>
+        <div className="size-[34.5px] bg-primary-400 col-start-1 row-start-3"></div>
       </div>
     </div>
   );
