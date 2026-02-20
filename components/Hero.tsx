@@ -13,7 +13,7 @@ export default function Hero() {
           <div className="flex flex-col gap-4">
             {/* texts */}
             <div className="flex flex-row items-center gap-2 md:gap-4">
-              <div className="h-px w-5.25 md:w-28.5 border border-box border-white"></div>
+              <div className="h-px w-5.25 md:w-28.5 border box-border border-white"></div>
               <span className="text-text-md md:text-xl leading-text-md md:leading-text-xl">
                 Hi, I am Edwin Anderson Frontend Developer
               </span>
@@ -56,7 +56,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-20 pointer-events-none bg-linear-to-b from-black/40 to-black" />
 
         {/* Card Feedback */}
-        <div className="absolute w-87.25 md:w-79 top-[324.38px] md:top-153 px-4 py-4 md:px-5 md:py-5 bg-black flex flex-col gap-2 border border-neutral-800 border-box rounded-2xl mx-auto z-40 left-1/2 -translate-x-1/2 text-left items-start">
+        <div className="absolute w-87.25 md:w-79 top-[324.38px] md:top-153 px-4 py-4 md:px-5 md:py-5 bg-black flex flex-col gap-2 border border-neutral-800 box-border rounded-2xl mx-auto z-40 left-1/2 -translate-x-1/2 text-left items-start">
           <div className="text-neutral-25 font-bold text-2xl leading-display-xs text-display-xl">
             5.0
           </div>
