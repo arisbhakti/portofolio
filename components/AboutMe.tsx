@@ -36,13 +36,13 @@ export default function AboutMe() {
             <h3 className="font-extrabold text-display-md leading-display-md md:text-display-2xl md:leading-display-2xl relative w-full">
               CRAFTING SEAMLESS
             </h3>
-            <h3 className="font-extrabold text-display-md leading-display-md md:text-display-2xl md:leading-display-2xl md:w-[872px] z-10">
+            <h3 className="font-extrabold text-display-md leading-display-md md:text-display-2xl md:leading-display-2xl md:w-218 z-10">
               <span className="text-primary-200">HIGH-PERFORMANCE WEB</span>{" "}
               EXPERIENCES
             </h3>
           </div>
         </div>
-        <p className="text-center text-text-md leading-text-md text-neutral-400 md:text-xl md:leading-text-xl md:w-[996px] flex self-center ">
+        <p className="text-center text-text-md leading-text-md text-neutral-400 md:text-xl md:leading-text-xl md:w-249 flex self-center ">
           I love turning designs into interactive, high-performance websites.
           With a keen eye for detail and a deep understanding of frontend
           technologies, I create smooth and visually appealing user experiences.
