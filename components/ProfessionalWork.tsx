@@ -1,5 +1,54 @@
 import React from "react";
 import Image from "next/image";
+
+type TimelineItem = {
+  id: number;
+  year: string;
+  role: string;
+  companyLogo: string;
+  companyAlt: string;
+  description: string;
+  logoClassName?: string;
+};
+
+const commonDescription =
+  "Builds responsive and high-performance web applications with clean, maintainable code. Expert in translating UI/UX designs into pixel-perfect interfaces using modern frameworks. Focused on optimizing performance, accessibility, and seamless user experiences";
+
+const timelineItems: TimelineItem[] = [
+  {
+    id: 1,
+    year: "2020 - 2022",
+    role: "Frontend Developer",
+    companyLogo: "/company-upwork.svg",
+    companyAlt: "Upwork",
+    description: commonDescription,
+  },
+  {
+    id: 2,
+    year: "2020 - 2022",
+    role: "Frontend Developer",
+    companyLogo: "/company-trello.svg",
+    companyAlt: "Trello",
+    description: commonDescription,
+  },
+  {
+    id: 3,
+    year: "2020 - 2022",
+    role: "Frontend Developer",
+    companyLogo: "/company-zoom.svg",
+    companyAlt: "Zoom",
+    description: commonDescription,
+  },
+  {
+    id: 4,
+    year: "2020 - 2022",
+    role: "Frontend Developer",
+    companyLogo: "/company-zapier.svg",
+    companyAlt: "Zapier",
+    description: commonDescription,
+  },
+];
+
 export default function ProfessionalWork() {
   return (
     <article
@@ -15,196 +64,77 @@ export default function ProfessionalWork() {
           PROFESIONAL WORK
         </h2>
       </header>
-      <div className="relative flex flex-col gap-4 md:gap-0">
-        {/* row 1 */}
-        <div className="flex flex-row gap-4 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-16">
-          <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl "></div>
-          <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
-            <div
-              aria-hidden
-              className="absolute left-1/2 top-1/2 -bottom-2 w-px bg-neutral-900 md:bottom-0"
-            ></div>
-            <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
-              1
-            </div>
-          </div>
-          <div className="our-process-card" id="our-process-card-2">
-            {/* title */}
-            <div className="flex flex-col gap-1 md:flex-row md:justify-between md:items-center md:gap-0">
-              {/* year and role */}
-              <div className="flex flex-col gap-1">
-                <span className="text-sm leading-text-sm text-neutral-400 font-normal md:text-lg md:leading-text-lg">
-                  2020 - 2022
-                </span>
-                <span className="font-bold text-text-md leading-text-md md:text-display-xs md:leading-display-xs">
-                  Frontend Developer
-                </span>
-              </div>
-              {/* company */}
-              <div>
-                <Image
-                  src="/company-upwork.svg"
-                  alt="Company Logo"
-                  width={76}
-                  height={32}
-                  className="md:w-28.5 md:h-12"
-                />
-              </div>
-            </div>
-            <div className="text-sm leading-text-sm text-neutral-400 md:text-text-md md:leading-text-md text-left">
-              Builds responsive and high-performance web applications with
-              clean, maintainable code. Expert in translating UI/UX designs into
-              pixel-perfect interfaces using modern frameworks. Focused on
-              optimizing performance, accessibility, and seamless user
-              experiences
-            </div>
-          </div>
-        </div>
+      <div className="relative flex flex-col gap-4 md:gap-0" id="timeline-work">
+        {timelineItems.map((item, index) => {
+          const isRight = index % 2 === 0;
+          const isFirst = index === 0;
+          const isLast = index === timelineItems.length - 1;
+          const rowClass = isRight
+            ? "flex flex-row gap-4 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-16"
+            : "flex flex-row-reverse gap-3 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-6";
 
-        {/* row 2 */}
-        <div className="flex flex-row-reverse gap-3 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-6">
-          <div className="our-process-card" id="our-process-card-2">
-            {/* title */}
-            <div className="flex flex-col gap-1 md:flex-row md:justify-between md:items-center md:gap-0">
-              {/* year and role */}
-              <div className="flex flex-col gap-1">
-                <span className="text-sm leading-text-sm text-neutral-400 font-normal md:text-lg md:leading-text-lg">
-                  2020 - 2022
-                </span>
-                <span className="font-bold text-text-md leading-text-md md:text-display-xs md:leading-display-xs">
-                  Frontend Developer
-                </span>
+          const card = (
+            <div className="our-process-card">
+              <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between md:gap-0">
+                <div className="flex flex-col gap-1">
+                  <span className="text-sm leading-text-sm text-neutral-400 font-normal md:text-lg md:leading-text-lg">
+                    {item.year}
+                  </span>
+                  <span className="font-bold text-text-md leading-text-md md:text-display-xs md:leading-display-xs">
+                    {item.role}
+                  </span>
+                </div>
+                <div>
+                  <Image
+                    src={item.companyLogo}
+                    alt={item.companyAlt}
+                    width={76}
+                    height={32}
+                    className={item.logoClassName ?? "md:w-28.5 md:h-12"}
+                  />
+                </div>
               </div>
-              {/* company */}
-              <div>
-                <Image
-                  src="/company-trello.svg"
-                  alt="Company Logo"
-                  width={76}
-                  height={32}
-                  className="md:w-28.5 md:h-12"
-                />
+              <div className="text-sm leading-text-sm text-neutral-400 md:text-text-md md:leading-text-md text-left">
+                {item.description}
               </div>
             </div>
-            <div className="text-sm leading-text-sm text-neutral-400 md:text-text-md md:leading-text-md text-left">
-              Builds responsive and high-performance web applications with
-              clean, maintainable code. Expert in translating UI/UX designs into
-              pixel-perfect interfaces using modern frameworks. Focused on
-              optimizing performance, accessibility, and seamless user
-              experiences
-            </div>
-          </div>
+          );
 
-          <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
-            <div
-              aria-hidden
-              className="absolute left-1/2 -top-2 bottom-1/2 w-px bg-neutral-900 md:top-0"
-            ></div>
-            <div
-              aria-hidden
-              className="absolute left-1/2 top-1/2 -bottom-2 w-px bg-neutral-900 md:bottom-0"
-            ></div>
-            <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
-              2
-            </div>
-          </div>
-          <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl "></div>
-        </div>
+          return (
+            <div className={rowClass} key={item.id}>
+              {isRight ? (
+                <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl"></div>
+              ) : (
+                card
+              )}
 
-        {/* row 3 */}
-        <div className="flex flex-row gap-4 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-16">
-          <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl "></div>
-          <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
-            <div
-              aria-hidden
-              className="absolute left-1/2 -top-2 bottom-1/2 w-px bg-neutral-900 md:top-0"
-            ></div>
-            <div
-              aria-hidden
-              className="absolute left-1/2 top-1/2 -bottom-2 w-px bg-neutral-900 md:bottom-0"
-            ></div>
-            <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
-              3
-            </div>
-          </div>
-          <div className="our-process-card" id="our-process-card-2">
-            {/* title */}
-            <div className="flex flex-col gap-1 md:flex-row md:justify-between md:items-center md:gap-0">
-              {/* year and role */}
-              <div className="flex flex-col gap-1">
-                <span className="text-sm leading-text-sm text-neutral-400 font-normal md:text-lg md:leading-text-lg">
-                  2020 - 2022
-                </span>
-                <span className="font-bold text-text-md leading-text-md md:text-display-xs md:leading-display-xs">
-                  Frontend Developer
-                </span>
-              </div>
-              {/* company */}
-              <div>
-                <Image
-                  src="/company-zoom.svg"
-                  alt="Company Logo"
-                  width={76}
-                  height={32}
-                  className="md:w-28.5 md:h-12"
-                />
-              </div>
-            </div>
-            <div className="text-sm leading-text-sm text-neutral-400 md:text-text-md md:leading-text-md text-left">
-              Builds responsive and high-performance web applications with
-              clean, maintainable code. Expert in translating UI/UX designs into
-              pixel-perfect interfaces using modern frameworks. Focused on
-              optimizing performance, accessibility, and seamless user
-              experiences
-            </div>
-          </div>
-        </div>
+              <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
+                {!isFirst && (
+                  <div
+                    aria-hidden
+                    className="absolute left-1/2 -top-2 bottom-1/2 w-px bg-neutral-900 md:top-0"
+                  ></div>
+                )}
+                {!isLast && (
+                  <div
+                    aria-hidden
+                    className="absolute left-1/2 top-1/2 -bottom-2 w-px bg-neutral-900 md:bottom-0"
+                  ></div>
+                )}
 
-        {/* row 4 */}
-        <div className="flex flex-row-reverse gap-3 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-6">
-          <div className="our-process-card" id="our-process-card-2">
-            {/* title */}
-            <div className="flex flex-col gap-1 md:flex-row md:justify-between md:items-center md:gap-0">
-              {/* year and role */}
-              <div className="flex flex-col gap-1">
-                <span className="text-sm leading-text-sm text-neutral-400 font-normal md:text-lg md:leading-text-lg">
-                  2020 - 2022
-                </span>
-                <span className="font-bold text-text-md leading-text-md md:text-display-xs md:leading-display-xs">
-                  Frontend Developer
-                </span>
+                <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800 text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
+                  {item.id}
+                </div>
               </div>
-              {/* company */}
-              <div>
-                <Image
-                  src="/company-zapier.svg"
-                  alt="Company Logo"
-                  width={76}
-                  height={32}
-                  className="md:w-28.5 md:h-12"
-                />
-              </div>
-            </div>
-            <div className="text-sm leading-text-sm text-neutral-400 md:text-text-md md:leading-text-md text-left">
-              Builds responsive and high-performance web applications with
-              clean, maintainable code. Expert in translating UI/UX designs into
-              pixel-perfect interfaces using modern frameworks. Focused on
-              optimizing performance, accessibility, and seamless user
-              experiences
-            </div>
-          </div>
 
-          <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
-            <div
-              aria-hidden
-              className="absolute left-1/2 -top-2 bottom-1/2 w-px bg-neutral-900 md:top-0"
-            ></div>
-            <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
-              4
+              {isRight ? (
+                card
+              ) : (
+                <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl"></div>
+              )}
             </div>
-          </div>
-          <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl "></div>
-        </div>
+          );
+        })}
       </div>
     </article>
   );
