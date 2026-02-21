@@ -7,6 +7,7 @@ import Portofolio from "@/components/Portofolio";
 import ProfessionalWork from "@/components/ProfessionalWork";
 import Services from "@/components/Services";
 import Skills from "@/components/Skiils";
+import Testimonials from "@/components/Testimonials";
 import WorkingWithMe from "@/components/WorkingWithMe";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <WorkingWithMe />
       <ProfessionalWork />
       <Portofolio />
+      <Testimonials />
     </main>
   );
 }
