@@ -1,6 +1,59 @@
 import Image from "next/image";
 import { LuArrowRight, LuArrowLeft } from "react-icons/lu";
 
+const testimonialsData = [
+  {
+    id: 1,
+    name: "Thom Haye",
+    position: "Head of Product",
+    companyLogo: "/company-upwork.svg",
+    companyAlt: "upwork",
+    rating: 5,
+    testimonial:
+      "“Highly skilled frontend developer with an eye for design. Transformed our wireframes into a seamless and responsive web experience. Highly recommended!”",
+  },
+  {
+    id: 2,
+    name: "Emily Carter",
+    position: "Project Manager",
+    companyLogo: "/company-trello.svg",
+    companyAlt: "trello",
+    rating: 4,
+    testimonial:
+      "“An absolute pleasure to work with! Delivered a stunning, high-performance website that exceeded expectations. Attention to detail and problem-solving skills are top-notch!“",
+  },
+  {
+    id: 3,
+    name: "Sarah Lee",
+    position: "Engineering Manager",
+    companyLogo: "/company-zapier.svg",
+    companyAlt: "zapier",
+    rating: 5,
+    testimonial:
+      "“An exceptional frontend developer with a deep understanding of UI/UX principles. The ability to translate design into pixel-perfect code is truly impressive. A valuable asset to any team!”",
+  },
+  {
+    id: 4,
+    name: "Michael Brown",
+    position: "Lead Developer",
+    companyLogo: "/company-zoom.svg",
+    companyAlt: "zoom",
+    rating: 3,
+    testimonial:
+      "“An absolute pleasure to work with! Delivered a stunning, high-performance website that exceeded expectations. Attention to detail and problem-solving skills are top-notch!“",
+  },
+  {
+    id: 5,
+    name: "Emily Carter",
+    position: "Project Manager",
+    companyLogo: "/company-trello.svg",
+    companyAlt: "trello",
+    rating: 4,
+    testimonial:
+      "“An absolute pleasure to work with! Delivered a stunning, high-performance website that exceeded expectations. Attention to detail and problem-solving skills are top-notch!“",
+  },
+];
+
 export default function Testimonials() {
   return (
     <div className="common-padding flex flex-col gap-6 md:gap-16">
