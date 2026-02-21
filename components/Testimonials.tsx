@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { LuArrowRight, LuArrowLeft } from "react-icons/lu";
+import { useEffect, useMemo, useState } from "react";
 
 const testimonialsData = [
   {
@@ -42,19 +45,47 @@ const testimonialsData = [
     testimonial:
       "“An absolute pleasure to work with! Delivered a stunning, high-performance website that exceeded expectations. Attention to detail and problem-solving skills are top-notch!“",
   },
-  {
-    id: 5,
-    name: "Emily Carter",
-    position: "Project Manager",
-    companyLogo: "/company-trello.svg",
-    companyAlt: "trello",
-    rating: 4,
-    testimonial:
-      "“An absolute pleasure to work with! Delivered a stunning, high-performance website that exceeded expectations. Attention to detail and problem-solving skills are top-notch!“",
-  },
 ];
 
 export default function Testimonials() {
+  const [visibleCount, setVisibleCount] = useState(3);
+  const [startIndex, setStartIndex] = useState(0);
+
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      setVisibleCount(window.innerWidth >= 768 ? 4 : 3);
+    };
+
+    updateVisibleCount();
+    window.addEventListener("resize", updateVisibleCount);
+
+    return () => window.removeEventListener("resize", updateVisibleCount);
+  }, []);
+
+  const maxStartIndex = Math.max(0, testimonialsData.length - visibleCount);
+
+  useEffect(() => {
+    setStartIndex((prev) => Math.min(prev, maxStartIndex));
+  }, [maxStartIndex]);
+
+  const visibleTestimonials = useMemo(
+    () => testimonialsData.slice(startIndex, startIndex + visibleCount),
+    [startIndex, visibleCount],
+  );
+
+  const canGoPrev = startIndex > 0;
+  const canGoNext = startIndex < maxStartIndex;
+
+  const handlePrev = () => {
+    if (!canGoPrev) return;
+    setStartIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNext = () => {
+    if (!canGoNext) return;
+    setStartIndex((prev) => Math.min(maxStartIndex, prev + 1));
+  };
+
   return (
     <div className="common-padding flex flex-col gap-6 md:gap-16">
       {/* titles */}
@@ -69,60 +100,94 @@ export default function Testimonials() {
       {/* testimonials and buttons */}
       <div className="flex flex-col gap-6 md:gap-10">
         {/* testimonials cards */}
-        <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-8.75">
-          {/* single card testimonials */}
-          <div className="flex flex-col border box-border border-neutral-800 rounded-2xl p-4 gap-3 md:p-6">
-            {/* header */}
-            <div className="flex flex-row justify-between">
-              {/* name and position */}
-              <div className="flex flex-col gap-1">
-                <h2 className="text-neutral-25 font-bold text-lg leading-text-lg md:text-xl md:leading-text-xl">
-                  Thom Haye
-                </h2>
-                <span className="text-neutral-400 text-text-md leading-text-md md:text-text-lg md:leading-text-lg">
-                  Head of Product
-                </span>
+        <div
+          className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-8.75"
+          id="all-testimonials"
+        >
+          {visibleTestimonials.map((item, index) => (
+            <div
+              className="flex flex-col border box-border border-neutral-800 rounded-2xl p-4 gap-3 md:p-6"
+              key={`${item.id}-${index}`}
+            >
+              {/* header */}
+              <div className="flex flex-row justify-between">
+                {/* name and position */}
+                <div className="flex flex-col gap-1">
+                  <h2 className="text-neutral-25 font-bold text-lg leading-text-lg md:text-xl md:leading-text-xl">
+                    {item.name}
+                  </h2>
+                  <span className="text-neutral-400 text-text-md leading-text-md md:text-text-lg md:leading-text-lg">
+                    {item.position}
+                  </span>
+                </div>
+                {/* company logo */}
+                <div className="flex items-center">
+                  <Image
+                    src={item.companyLogo}
+                    alt={item.companyAlt}
+                    width={76}
+                    height={32}
+                    className="md:w-28.5 md:h-12"
+                  />
+                </div>
               </div>
-              {/* company logo */}
-              <div className="flex items-center">
-                <Image
-                  src="/company-upwork.svg"
-                  alt="upwork"
-                  width={76}
-                  height={32}
-                  className="md:w-28.5 md:h-12"
-                />
+              {/* stars */}
+              <div className="flex flex-row items-center">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Image
+                    key={i}
+                    src="/star-yellow.svg"
+                    alt="star"
+                    width={20}
+                    height={20}
+                    className={`md:h-8 md:w-8 ${
+                      i < item.rating ? "opacity-100" : "opacity-30"
+                    }`}
+                  />
+                ))}
+              </div>
+              {/* testimonial */}
+              <div className="text-neutral-25 text-text-md leading-text-md font-medium md:text-text-lg md:leading-text-lg">
+                {item.testimonial}
               </div>
             </div>
-            {/* stars */}
-            <div className="flex flex-row items-center">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Image
-                  key={i}
-                  src="/star-yellow.svg"
-                  alt="star"
-                  width={20}
-                  height={20}
-                  className="md:h-8 md:w-8"
-                />
-              ))}
-            </div>
-            {/* testimonial */}
-            <div className="text-neutral-25 text-text-md leading-text-md font-medium md:text-text-lg md:leading-text-lg">
-              “Highly skilled frontend developer with an eye for design.
-              Transformed our wireframes into a seamless and responsive web
-              experience. Highly recommended!”
-            </div>
-          </div>
+          ))}
         </div>
         {/* buttons */}
-        <div className="flex flex-row gap gap-4 items-center justify-center">
-          <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border box-border border-neutral-800 flex items-center justify-center cursor-pointer">
-            <LuArrowLeft className="text-neutral-800 text-[20.57px] md:text-[24px]" />
-          </div>
-          <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border box-border border-neutral-800 flex items-center justify-center cursor-pointer">
-            <LuArrowRight className="text-primary-200 text-[20.57px] md:text-[24px]" />
-          </div>
+        <div
+          className="flex flex-row gap-4 items-center justify-center"
+          id="navigation-buttons"
+        >
+          <button
+            type="button"
+            onClick={handlePrev}
+            disabled={!canGoPrev}
+            className={`w-12 h-12 md:w-14 md:h-14 rounded-full border box-border border-neutral-800 flex items-center justify-center ${
+              canGoPrev ? "cursor-pointer" : "cursor-not-allowed"
+            }`}
+            aria-label="Previous testimonials"
+          >
+            <LuArrowLeft
+              className={`text-[20.57px] md:text-[24px] ${
+                canGoPrev ? "text-primary-200" : "text-neutral-800"
+              }`}
+            />
+          </button>
+          <button
+            type="button"
+            onClick={handleNext}
+            disabled={!canGoNext}
+            className={`w-12 h-12 md:w-14 md:h-14 rounded-full border box-border border-neutral-800 flex items-center justify-center ${
+              canGoNext ? "cursor-pointer" : "cursor-not-allowed"
+            }`}
+            aria-label="Next testimonials"
+          >
+            <LuArrowRight
+              className={`text-[20.57px] md:text-[24px] ${
+                canGoNext ? "text-primary-200" : "text-neutral-800"
+              }`}
+            />
+          </button>
         </div>
       </div>
     </div>
