@@ -136,6 +136,11 @@ export default function ProfessionalWork() {
           );
         })}
       </div>
+      <div className="absolute grid-cols-2 grid-rows-3 bottom-0 right-0 z-30  gap-0 hidden md:grid">
+        <div className="size-[34.5px] bg-primary-400 col-start-2 row-start-1"></div>
+        <div className="size-[34.5px] bg-primary-400 col-start-1 row-start-2"></div>
+        <div className="size-[34.5px] bg-primary-400 col-start-2 row-start-3"></div>
+      </div>
     </article>
   );
 }
