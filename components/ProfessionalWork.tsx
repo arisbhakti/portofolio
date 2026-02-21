@@ -20,7 +20,7 @@ export default function ProfessionalWork() {
         <div className="flex flex-row md:flex-row gap-4 md:gap-16">
           <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl "></div>
           <div className="flex flex-1 justify-center-center items-center shrink-0 grow-0">
-            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800 timeline-line text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
+            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
               1
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function ProfessionalWork() {
           </div>
 
           <div className="flex flex-1 justify-center-center items-center shrink-0 grow-0">
-            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800 timeline-line text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
+            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
               2
             </div>
           </div>
@@ -103,8 +103,8 @@ export default function ProfessionalWork() {
         <div className="flex flex-row md:flex-row gap-4 md:gap-16">
           <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl "></div>
           <div className="flex flex-1 justify-center-center items-center shrink-0 grow-0">
-            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800 timeline-line text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
-              1
+            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
+              3
             </div>
           </div>
           <div className="our-process-card" id="our-process-card-2">
@@ -175,8 +175,8 @@ export default function ProfessionalWork() {
           </div>
 
           <div className="flex flex-1 justify-center-center items-center shrink-0 grow-0">
-            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800 timeline-line text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
-              2
+            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
+              4
             </div>
           </div>
           <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl "></div>
