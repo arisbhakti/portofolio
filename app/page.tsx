@@ -3,6 +3,7 @@
 import AboutMe from "@/components/AboutMe";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Portofolio from "@/components/Portofolio";
 import ProfessionalWork from "@/components/ProfessionalWork";
 import Services from "@/components/Services";
 import Skills from "@/components/Skiils";
@@ -19,6 +20,7 @@ export default function Home() {
       <Skills />
       <WorkingWithMe />
       <ProfessionalWork />
+      <Portofolio />
     </main>
   );
 }
