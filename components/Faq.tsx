@@ -34,6 +34,10 @@ const faqs = [
   },
 ];
 
+const faqRows = Array.from({ length: Math.ceil(faqs.length / 2) }, (_, index) =>
+  faqs.slice(index * 2, index * 2 + 2),
+);
+
 export default function Faq() {
   return (
     <div className="common-padding flex flex-col gap-6 md:gap-16 ">
@@ -47,55 +51,85 @@ export default function Faq() {
         </h1>
       </div>
       {/* faqs */}
-      <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-8">
-        {/* single faq , looping the data */}
-        {faqs.map((faq, index) => (
-          <div className="flex flex-col gap-4">
-            <div key={index} className="flex flex-col gap-2 md:gap-6">
-              {/* question */}
-              <div className="flex items-start justify-start gap-3">
-                <Image
-                  src="/star-bright.svg"
-                  alt="plus icon"
-                  width={24}
-                  height={24}
-                  className="md:h-8 md:w-8"
-                />
-                <span className="font-bold text-lg leading-text-lg md:text-display-xs md:leading-display-xs">
-                  {faq.question}
-                </span>
+      <div className="flex flex-col gap-4 md:gap-0">
+        {/* mobile - keep existing behavior */}
+        <div className="flex flex-col gap-4 md:hidden">
+          {faqs.map((faq, index) => (
+            <div className="flex flex-col gap-4" key={`mobile-faq-${index}`}>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-start justify-start gap-3">
+                  <Image
+                    src="/star-bright.svg"
+                    alt="plus icon"
+                    width={24}
+                    height={24}
+                  />
+                  <span className="font-bold text-lg leading-text-lg">
+                    {faq.question}
+                  </span>
+                </div>
+                <p className="font-medium text-sm leading-text-sm text-neutral-400">
+                  {faq.answer}
+                </p>
               </div>
-              {/* answer */}
-              <p className="font-medium text-sm leading-text-sm text-neutral-400 md:text-text-md md:leading-text-md">
-                {faq.answer}
-              </p>
+              {index !== faqs.length - 1 && (
+                <hr className="border box-border border-neutral-800" />
+              )}
             </div>
-            {index !== faqs.length - 1 && (
-              <hr className="border box-border border-neutral-800 md:hidden" />
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
 
-        {/* <div className="flex flex-col gap-2">
-          
-          <div className="flex items-start justify-start gap-3">
-            <Image
-              src="/star-bright.svg"
-              alt="plus icon"
-              width={24}
-              height={24}
-            />
-            <span className="font-bold text-lg leading-text-lg">
-              What technologies do you specialize in?
-            </span>
-          </div>
-          
-          <p className="font-medium text-sm leading-text-sm text-neutral-400">
-            I specialize in React.js, Next.js, Vue.js, Tailwind CSS, and
-            TypeScript, ensuring high-performance, scalable, and maintainable
-            web applications.
-          </p>
-        </div> */}
+        {/* desktop only */}
+        <div className="hidden md:flex md:flex-col md:divide-y md:divide-neutral-800">
+          {faqRows.map((row, rowIndex) => (
+            <div
+              className="grid grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] gap-x-10 py-10"
+              key={`desktop-faq-row-${rowIndex}`}
+            >
+              <div className="flex flex-col gap-6">
+                <div className="flex items-start justify-start gap-3">
+                  <Image
+                    src="/star-bright.svg"
+                    alt="plus icon"
+                    width={32}
+                    height={32}
+                    className="h-8 w-8"
+                  />
+                  <span className="font-bold text-display-xs leading-display-xs">
+                    {row[0].question}
+                  </span>
+                </div>
+                <p className="font-medium text-text-md leading-text-md text-neutral-400">
+                  {row[0].answer}
+                </p>
+              </div>
+
+              <div className="bg-neutral-800"></div>
+
+              <div className="flex flex-col gap-6">
+                {row[1] ? (
+                  <>
+                    <div className="flex items-start justify-start gap-3">
+                      <Image
+                        src="/star-bright.svg"
+                        alt="plus icon"
+                        width={32}
+                        height={32}
+                        className="h-8 w-8"
+                      />
+                      <span className="font-bold text-display-xs leading-display-xs">
+                        {row[1].question}
+                      </span>
+                    </div>
+                    <p className="font-medium text-text-md leading-text-md text-neutral-400">
+                      {row[1].answer}
+                    </p>
+                  </>
+                ) : null}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
