@@ -1,6 +1,7 @@
 "use client";
 
 import AboutMe from "@/components/AboutMe";
+import Faq from "@/components/Faq";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Portofolio from "@/components/Portofolio";
@@ -23,6 +24,7 @@ export default function Home() {
       <ProfessionalWork />
       <Portofolio />
       <Testimonials />
+      <Faq />
     </main>
   );
 }
