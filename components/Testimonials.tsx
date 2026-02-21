@@ -45,6 +45,46 @@ const testimonialsData = [
     testimonial:
       "“An absolute pleasure to work with! Delivered a stunning, high-performance website that exceeded expectations. Attention to detail and problem-solving skills are top-notch!“",
   },
+  {
+    id: 5,
+    name: "Alicia Morgan",
+    position: "Senior Product Designer",
+    companyLogo: "/company-facebook.svg",
+    companyAlt: "facebook",
+    rating: 5,
+    testimonial:
+      "“Collaborating on our redesign was effortless. Every component was delivered clean, scalable, and perfectly aligned with our design system constraints.”",
+  },
+  {
+    id: 6,
+    name: "Daniel Kim",
+    position: "Engineering Director",
+    companyLogo: "/company-google.svg",
+    companyAlt: "google",
+    rating: 5,
+    testimonial:
+      "“Excellent frontend execution with strong performance awareness. The final product shipped faster and felt significantly smoother on both desktop and mobile.”",
+  },
+  {
+    id: 7,
+    name: "Priya Natarajan",
+    position: "Technical Program Manager",
+    companyLogo: "/company-netflix.svg",
+    companyAlt: "netflix",
+    rating: 4,
+    testimonial:
+      "“Great communication and consistent delivery quality. Complex UI behaviors were implemented with precision while keeping the codebase easy to maintain.”",
+  },
+  {
+    id: 8,
+    name: "Marcus Reed",
+    position: "Head of Digital Experience",
+    companyLogo: "/company-amazon.svg",
+    companyAlt: "amazon",
+    rating: 5,
+    testimonial:
+      "“From planning to release, the process was solid. The interface quality, responsiveness, and detail level exceeded what we expected for the timeline.”",
+  },
 ];
 
 export default function Testimonials() {
