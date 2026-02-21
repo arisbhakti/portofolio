@@ -15,12 +15,16 @@ export default function ProfessionalWork() {
           PROFESIONAL WORK
         </h2>
       </header>
-      <div className="flex flex-col gap-4 md:gap-0">
+      <div className="relative flex flex-col gap-4 md:gap-0">
         {/* row 1 */}
-        <div className="flex flex-row md:flex-row gap-4 md:gap-16">
+        <div className="flex flex-row gap-4 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-16">
           <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl "></div>
-          <div className="flex flex-1 justify-center-center items-center shrink-0 grow-0">
-            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
+          <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-1/2 -bottom-2 w-px bg-neutral-900 md:bottom-0"
+            ></div>
+            <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
               1
             </div>
           </div>
@@ -58,7 +62,7 @@ export default function ProfessionalWork() {
         </div>
 
         {/* row 2 */}
-        <div className="flex flex-row-reverse md:flex-row gap-3 md:gap-6">
+        <div className="flex flex-row-reverse gap-3 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-6">
           <div className="our-process-card" id="our-process-card-2">
             {/* title */}
             <div className="flex flex-col gap-1 md:flex-row md:justify-between md:items-center md:gap-0">
@@ -91,8 +95,16 @@ export default function ProfessionalWork() {
             </div>
           </div>
 
-          <div className="flex flex-1 justify-center-center items-center shrink-0 grow-0">
-            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
+          <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
+            <div
+              aria-hidden
+              className="absolute left-1/2 -top-2 bottom-1/2 w-px bg-neutral-900 md:top-0"
+            ></div>
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-1/2 -bottom-2 w-px bg-neutral-900 md:bottom-0"
+            ></div>
+            <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
               2
             </div>
           </div>
@@ -100,10 +112,18 @@ export default function ProfessionalWork() {
         </div>
 
         {/* row 3 */}
-        <div className="flex flex-row md:flex-row gap-4 md:gap-16">
+        <div className="flex flex-row gap-4 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-16">
           <div className="hidden relative md:flex flex-row flex-1 p-4 md:p-6 gap-1 text-left rounded-2xl "></div>
-          <div className="flex flex-1 justify-center-center items-center shrink-0 grow-0">
-            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
+          <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
+            <div
+              aria-hidden
+              className="absolute left-1/2 -top-2 bottom-1/2 w-px bg-neutral-900 md:top-0"
+            ></div>
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-1/2 -bottom-2 w-px bg-neutral-900 md:bottom-0"
+            ></div>
+            <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
               3
             </div>
           </div>
@@ -141,7 +161,7 @@ export default function ProfessionalWork() {
         </div>
 
         {/* row 4 */}
-        <div className="flex flex-row-reverse md:flex-row gap-3 md:gap-6">
+        <div className="flex flex-row-reverse gap-3 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-6">
           <div className="our-process-card" id="our-process-card-2">
             {/* title */}
             <div className="flex flex-col gap-1 md:flex-row md:justify-between md:items-center md:gap-0">
@@ -174,8 +194,12 @@ export default function ProfessionalWork() {
             </div>
           </div>
 
-          <div className="flex flex-1 justify-center-center items-center shrink-0 grow-0">
-            <div className="relative flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
+          <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
+            <div
+              aria-hidden
+              className="absolute left-1/2 -top-2 bottom-1/2 w-px bg-neutral-900 md:top-0"
+            ></div>
+            <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800  text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">
               4
             </div>
           </div>
