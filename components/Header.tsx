@@ -88,15 +88,17 @@ export default function Header() {
           className={`w-px bg-neutral-800 left-49.25 h-20 z-0 md:hidden ${isScrolled ? "hidden" : "absolute"}`}
         ></div>
         <a
-          className="flex flex-row items-center justify-center gap-2.25 md:gap-2"
+          className="group/owner relative -mx-2 flex flex-row items-center justify-center gap-2.25 rounded-full px-2 py-1 transition-all duration-300 md:gap-2"
           id="owner-div"
           href="#home"
           onClick={handleNavClick("#home")}
         >
-          <div className="w-6 md:w-10 border box-border border-white h-px"></div>
-          <span className="text-primary-200 font-bold text-md md:text-xl leading-text-xl md:pl-2">
+          <span className="pointer-events-none absolute inset-0 rounded-full bg-primary-200/10 opacity-0 blur-md transition-opacity duration-300 group-hover/owner:opacity-100"></span>
+          <div className="relative z-10 h-px w-6 border border-white transition-all duration-300 group-hover/owner:w-7 group-hover/owner:border-primary-200 md:w-10 md:group-hover/owner:w-12"></div>
+          <span className="relative z-10 text-primary-200 font-bold text-md md:text-xl leading-text-xl transition-all duration-300 group-hover/owner:text-primary-100 group-hover/owner:drop-shadow-[0_0_14px_rgba(145,255,2,0.45)] md:pl-2">
             Edwin Anderson.
           </span>
+          <span className="pointer-events-none absolute -bottom-[3px] left-1/2 h-px w-0 -translate-x-1/2 bg-primary-200 transition-all duration-300 ease-out group-hover/owner:w-[calc(100%-24px)]"></span>
         </a>
         <button
           id="menu-mobile-button"
@@ -113,15 +115,17 @@ export default function Header() {
             className=""
           />
         </button>
-        <div className="hidden md:flex flex-row gap-8">
+        <div className="hidden md:flex flex-row items-center gap-3">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-white text-text-md font-medium leading-text-md"
+              className="group relative inline-flex items-center px-3 py-2 text-white/90 text-text-md font-medium leading-text-md transition-all duration-300 hover:text-primary-200"
               onClick={handleNavClick(link.href)}
             >
-              {link.label}
+              <span className="relative z-10">{link.label}</span>
+              <span className="pointer-events-none absolute inset-0 rounded-full bg-primary-200/10 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"></span>
+              <span className="pointer-events-none absolute -bottom-[1px] left-1/2 h-px w-0 -translate-x-1/2 bg-primary-200 transition-all duration-300 ease-out group-hover:w-[calc(100%-20px)]"></span>
             </a>
           ))}
         </div>
