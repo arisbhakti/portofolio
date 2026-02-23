@@ -40,7 +40,7 @@ const faqRows = Array.from({ length: Math.ceil(faqs.length / 2) }, (_, index) =>
 
 export default function Faq() {
   return (
-    <div className="common-padding flex flex-col gap-6 md:gap-16 ">
+    <div className="common-padding flex flex-col gap-6 md:gap-16 " id="faq">
       {/* titles */}
       <div className="flex flex-col gap-2 text-center">
         <h2 className="text-text-md leading-text-md font-medium text-primary-200 md:text-lg md:leading-text-lg">

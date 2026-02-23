@@ -2,8 +2,8 @@ import Image from "next/image";
 export default function AboutMe() {
   return (
     <div
-      className="flex flex-col gap-0 relative 
-    "
+      className="flex flex-col gap-0 relative
+    " id="about"
     >
       {/* title */}
       <div className="common-padding flex flex-col gap-4 md:gap-16 ">

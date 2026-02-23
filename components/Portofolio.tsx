@@ -44,7 +44,7 @@ const portofolioData = [
 
 export default function Portofolio() {
   return (
-    <div className="common-padding flex flex-col gap-6 md:gap-16">
+    <div className="common-padding flex flex-col gap-6 md:gap-16" id="projects">
       <div className="absolute grid-cols-2 grid-rows-3 -top-[21.62px] right-0 z-30  gap-0 grid md:hidden">
         <div className="size-[34.5px] bg-primary-400 col-start-2 row-start-1"></div>
         <div className="size-[34.5px] bg-primary-400 col-start-1 row-start-2"></div>

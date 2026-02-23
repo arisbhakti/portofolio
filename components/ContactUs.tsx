@@ -2,7 +2,10 @@ import React from "react";
 import Image from "next/image";
 export default function ContactUs() {
   return (
-    <div className="flex flex-col gap-0 w-full md:pb-30! pt-0 md:pt-20! relative md:flex-row md:px-32 md:py-20 md:gap-30.5 border-t border-t-neutral-800">
+    <div
+      className="flex flex-col gap-0 w-full md:pb-30! pt-0 md:pt-20! relative md:flex-row md:px-32 md:py-20 md:gap-30.5 border-t border-t-neutral-800"
+      id="contact"
+    >
       {/* 3 boxes */}
       <div className="absolute top-0 left-0 z-30 grid grid-cols-3 grid-rows-2 gap-0">
         <div className="col-start-1 row-start-1 size-8.5 md:size-11.5 bg-primary-400" />
