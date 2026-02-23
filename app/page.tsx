@@ -42,7 +42,7 @@ const sectionAnimations = [
   {
     initial: { opacity: 0, scale: 0.94, y: 24 },
     whileInView: { opacity: 1, scale: 1, y: 0 },
-    transition: { duration: 0.66, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.86, ease: [0.22, 1, 0.36, 1] },
     amount: 0.24,
   },
   {

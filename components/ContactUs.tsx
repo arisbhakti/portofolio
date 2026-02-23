@@ -31,14 +31,14 @@ export default function ContactUs() {
         <div className="col-start-3 row-start-1 size-8.5 md:size-11.5 bg-primary-400" />
       </div>
       {/* profile contact us */}
-      <div className="w-full relative h-128.5  md:w-[420.89px] md:h-160 ">
+      <div className="w-full relative h-128.5 bg-black isolate md:w-[420.89px] md:h-160 ">
         <div className="overflow-hidden">
           <Image
             src="/hero-image-desktop.svg"
             alt="Contact Us Profile"
             width={400}
             height={400}
-            className="w-full h-auto object-cover rounded-lg mix-blend-luminosity -rotate-3 -translate-x-4 -translate-y-5 scale-[0.85] md:translate-x-0 md:translate-y-0 md:scale-100"
+            className="w-full h-auto object-cover rounded-lg mix-blend-luminosity saturate-0 brightness-110 contrast-110 -rotate-3 -translate-x-4 -translate-y-5 scale-[0.85] md:translate-x-0 md:translate-y-0 md:scale-100"
           />
         </div>
 
