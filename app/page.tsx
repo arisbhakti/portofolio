@@ -14,71 +14,72 @@ import Testimonials from "@/components/Testimonials";
 import WorkingWithMe from "@/components/WorkingWithMe";
 import { motion } from "framer-motion";
 
+const commonDuration = 1;
 const sectionAnimations = [
   {
     initial: { opacity: 0, y: 48, scale: 0.98 },
     whileInView: { opacity: 1, y: 0, scale: 1 },
-    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] },
     amount: 0.2,
   },
   {
     initial: { opacity: 0, x: -60, y: 12 },
     whileInView: { opacity: 1, x: 0, y: 0 },
-    transition: { duration: 0.68, ease: [0.25, 1, 0.5, 1] },
+    transition: { duration: commonDuration, ease: [0.25, 1, 0.5, 1] },
     amount: 0.25,
   },
   {
     initial: { opacity: 0, x: 60, y: 12 },
     whileInView: { opacity: 1, x: 0, y: 0 },
-    transition: { duration: 0.7, ease: [0.25, 1, 0.5, 1] },
+    transition: { duration: commonDuration, ease: [0.25, 1, 0.5, 1] },
     amount: 0.25,
   },
   {
     initial: { opacity: 0, y: 40, rotate: -1.5 },
     whileInView: { opacity: 1, y: 0, rotate: 0 },
-    transition: { duration: 0.72, ease: [0.2, 0.9, 0.3, 1] },
+    transition: { duration: commonDuration, ease: [0.2, 0.9, 0.3, 1] },
     amount: 0.22,
   },
   {
     initial: { opacity: 0, scale: 0.94, y: 24 },
     whileInView: { opacity: 1, scale: 1, y: 0 },
-    transition: { duration: 0.86, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: commonDuration, ease: [0.22, 1, 0.36, 1] },
     amount: 0.24,
   },
   {
     initial: { opacity: 0, y: 55, x: -20 },
     whileInView: { opacity: 1, y: 0, x: 0 },
-    transition: { duration: 0.74, ease: [0.2, 0.85, 0.3, 1] },
+    transition: { duration: commonDuration, ease: [0.2, 0.85, 0.3, 1] },
     amount: 0.2,
   },
   {
     initial: { opacity: 0, y: 55, x: 20 },
     whileInView: { opacity: 1, y: 0, x: 0 },
-    transition: { duration: 0.74, ease: [0.2, 0.85, 0.3, 1] },
+    transition: { duration: commonDuration, ease: [0.2, 0.85, 0.3, 1] },
     amount: 0.2,
   },
   {
     initial: { opacity: 0, x: -48, scale: 0.97 },
     whileInView: { opacity: 1, x: 0, scale: 1 },
-    transition: { duration: 0.7, ease: [0.25, 1, 0.5, 1] },
+    transition: { duration: commonDuration, ease: [0.25, 1, 0.5, 1] },
     amount: 0.22,
   },
   {
     initial: { opacity: 0, x: 48, scale: 0.97 },
     whileInView: { opacity: 1, x: 0, scale: 1 },
-    transition: { duration: 0.7, ease: [0.25, 1, 0.5, 1] },
+    transition: { duration: commonDuration, ease: [0.25, 1, 0.5, 1] },
     amount: 0.22,
   },
   {
     initial: { opacity: 0, y: 46 },
     whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.68, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: commonDuration, ease: [0.22, 1, 0.36, 1] },
     amount: 0.25,
   },
   {
     initial: { opacity: 0, scale: 0.95, y: 36 },
     whileInView: { opacity: 1, scale: 1, y: 0 },
-    transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: commonDuration, ease: [0.22, 1, 0.36, 1] },
     amount: 0.26,
   },
 ];
@@ -111,15 +112,7 @@ function AnimatedSection({
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen justify-between bg-black overflow-x-hidden">
-      {/* <div className="w-px bg-neutral-800 absolute left-49.25 h-140.75 z-50"></div> */}
-      <motion.div
-        className="overflow-x-clip"
-        initial={{ opacity: 0, y: -24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <Header />
-      </motion.div>
+      <Header />
       <AnimatedSection animation={sectionAnimations[0]}>
         <Hero />
       </AnimatedSection>
