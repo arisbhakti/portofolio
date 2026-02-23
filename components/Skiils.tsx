@@ -84,7 +84,8 @@ export default function Skiils() {
                     className="pointer-events-none absolute inset-0"
                     style={{
                       backgroundImage:
-                        "repeating-linear-gradient(60deg, rgba(253,253,253,0.35) 0px, rgba(253,253,253,0.35) 0.1px, transparent 0.3px, transparent 14px)",
+                        "repeating-linear-gradient(60deg, rgba(253,253,253,0.14) 0.7px, rgba(253,253,253,0.14) 0.65px, rgba(253,253,253,0.08) 1px, rgba(253,253,253,0.02) 1.55px, transparent 2px, transparent 14px)",
+                      filter: "blur(0.12px)",
                     }}
                   ></div>
                   <span className="relative z-10 font-semibold text-sm leading-text-sm text-neutral-25 md:text-lg md:leading-text-lg">
