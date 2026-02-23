@@ -3,6 +3,31 @@
 import Image from "next/image";
 import { LuArrowRight, LuArrowLeft } from "react-icons/lu";
 import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+const testimonialsSlideVariants = {
+  enter: (currentDirection: number) => ({
+    opacity: 0,
+    x: currentDirection > 0 ? 34 : -34,
+    filter: "blur(2px)",
+  }),
+  center: {
+    opacity: 1,
+    x: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.34,
+    },
+  },
+  exit: (currentDirection: number) => ({
+    opacity: 0,
+    x: currentDirection > 0 ? -34 : 34,
+    filter: "blur(2px)",
+    transition: {
+      duration: 0.24,
+    },
+  }),
+};
 
 const testimonialsData = [
   {
@@ -90,6 +115,7 @@ const testimonialsData = [
 export default function Testimonials() {
   const [visibleCount, setVisibleCount] = useState(3);
   const [startIndex, setStartIndex] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -118,11 +144,13 @@ export default function Testimonials() {
 
   const handlePrev = () => {
     if (!canGoPrev) return;
+    setDirection(-1);
     setStartIndex((prev) => Math.max(0, prev - 1));
   };
 
   const handleNext = () => {
     if (!canGoNext) return;
+    setDirection(1);
     setStartIndex((prev) => Math.min(maxStartIndex, prev + 1));
   };
 
@@ -140,58 +168,79 @@ export default function Testimonials() {
       {/* testimonials and buttons */}
       <div className="flex flex-col gap-6 md:gap-10">
         {/* testimonials cards */}
-        <div
-          className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-8.75"
-          id="all-testimonials"
-        >
-          {visibleTestimonials.map((item, index) => (
-            <div
-              className="flex flex-col border box-border border-neutral-800 rounded-2xl p-4 gap-3 md:p-6"
-              key={`${item.id}-${index}`}
+        <div className="relative overflow-hidden">
+          <AnimatePresence initial={false} mode="wait" custom={direction}>
+            <motion.div
+              key={`${startIndex}-${visibleCount}`}
+              custom={direction}
+              variants={testimonialsSlideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-8.75"
+              id="all-testimonials"
             >
-              {/* header */}
-              <div className="flex flex-row justify-between">
-                {/* name and position */}
-                <div className="flex flex-col gap-1">
-                  <h2 className="text-neutral-25 font-bold text-lg leading-text-lg md:text-xl md:leading-text-xl">
-                    {item.name}
-                  </h2>
-                  <span className="text-neutral-400 text-text-md leading-text-md md:text-text-lg md:leading-text-lg">
-                    {item.position}
-                  </span>
-                </div>
-                {/* company logo */}
-                <div className="flex items-center">
-                  <Image
-                    src={item.companyLogo}
-                    alt={item.companyAlt}
-                    width={76}
-                    height={32}
-                    className="md:w-28.5 md:h-12"
-                  />
-                </div>
-              </div>
-              {/* stars */}
-              <div className="flex flex-row items-center">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Image
-                    key={i}
-                    src="/star-yellow.svg"
-                    alt="star"
-                    width={20}
-                    height={20}
-                    className={`md:h-8 md:w-8 ${
-                      i < item.rating ? "opacity-100" : "opacity-30"
-                    }`}
-                  />
-                ))}
-              </div>
-              {/* testimonial */}
-              <div className="text-neutral-25 text-text-md leading-text-md font-medium md:text-text-lg md:leading-text-lg">
-                {item.testimonial}
-              </div>
-            </div>
-          ))}
+              {visibleTestimonials.map((item, index) => (
+                <motion.div
+                  className="flex flex-col border box-border border-neutral-800 rounded-2xl p-4 gap-3 md:p-6"
+                  key={`${item.id}-${index}`}
+                  initial={{ opacity: 0, y: 12, scale: 0.985 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      duration: 0.26,
+                      delay: index * 0.04,
+                      ease: [0.22, 1, 0.36, 1],
+                    },
+                  }}
+                >
+                  {/* header */}
+                  <div className="flex flex-row justify-between">
+                    {/* name and position */}
+                    <div className="flex flex-col gap-1">
+                      <h2 className="text-neutral-25 font-bold text-lg leading-text-lg md:text-xl md:leading-text-xl">
+                        {item.name}
+                      </h2>
+                      <span className="text-neutral-400 text-text-md leading-text-md md:text-text-lg md:leading-text-lg">
+                        {item.position}
+                      </span>
+                    </div>
+                    {/* company logo */}
+                    <div className="flex items-center">
+                      <Image
+                        src={item.companyLogo}
+                        alt={item.companyAlt}
+                        width={76}
+                        height={32}
+                        className="md:w-28.5 md:h-12"
+                      />
+                    </div>
+                  </div>
+                  {/* stars */}
+                  <div className="flex flex-row items-center">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Image
+                        key={i}
+                        src="/star-yellow.svg"
+                        alt="star"
+                        width={20}
+                        height={20}
+                        className={`md:h-8 md:w-8 ${
+                          i < item.rating ? "opacity-100" : "opacity-30"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  {/* testimonial */}
+                  <div className="text-neutral-25 text-text-md leading-text-md font-medium md:text-text-lg md:leading-text-lg">
+                    {item.testimonial}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
         {/* buttons */}
         <div
