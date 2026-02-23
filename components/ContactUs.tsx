@@ -154,45 +154,48 @@ export default function ContactUs() {
           {/* social medias */}
           <div className="flex flex-row gap-4 md:gap-6">
             <a
-              href="https://www.linkedin.com/in/ariessetyawaldimuhammad/"
+              href="https://dribbble.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-black flex items-center justify-center border border-neutral-800 box-border md:w-16 md:h-16"
+              className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-neutral-800 bg-black box-border transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:border-primary-200/70 hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_14px_30px_-18px_rgba(145,255,2,0.7)] md:h-16 md:w-16"
             >
+              <span className="pointer-events-none absolute inset-0 rounded-full bg-primary-200/20 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"></span>
               <Image
                 src="/social-dribble.svg"
                 alt="LinkedIn"
                 width={28.83}
                 height={28.83}
-                className="md:w-[38.44px] md:h-[38.44px] "
+                className="relative z-10 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-0.5 md:w-[38.44px] md:h-[38.44px]"
               />
             </a>
             <a
-              href="https://www.linkedin.com/in/ariessetyawaldimuhammad/"
+              href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-black flex items-center justify-center border border-neutral-800 box-border md:w-16 md:h-16"
+              className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-neutral-800 bg-black box-border transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:border-primary-200/70 hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_14px_30px_-18px_rgba(145,255,2,0.7)] md:h-16 md:w-16"
             >
+              <span className="pointer-events-none absolute inset-0 rounded-full bg-primary-200/20 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"></span>
               <Image
                 src="/social-instagram.svg"
                 alt="LinkedIn"
                 width={24.01}
                 height={24.01}
-                className="md:w-[32.02px] md:h-[32.03px] "
+                className="relative z-10 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-0.5 md:w-[32.02px] md:h-[32.03px]"
               />
             </a>
             <a
-              href="https://www.linkedin.com/in/ariessetyawaldimuhammad/"
+              href="http://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-black flex items-center justify-center border border-neutral-800 box-border md:w-16 md:h-16"
+              className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-neutral-800 bg-black box-border transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:border-primary-200/70 hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_14px_30px_-18px_rgba(145,255,2,0.7)] md:h-16 md:w-16"
             >
+              <span className="pointer-events-none absolute inset-0 rounded-full bg-primary-200/20 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"></span>
               <Image
                 src="/social-linkedin.svg"
                 alt="LinkedIn"
                 width={20.09}
                 height={19.22}
-                className="md:w-[26.78px] md:h-[25.62px] "
+                className="relative z-10 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-0.5 md:w-[26.78px] md:h-[25.62px]"
               />
             </a>
           </div>
