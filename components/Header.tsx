@@ -84,6 +84,9 @@ export default function Header() {
           isScrolled ? "md:bg-black" : "md:bg-transparent"
         }`}
       >
+        <div
+          className={`w-px bg-neutral-800 left-49.25 h-20 z-0 md:hidden ${isScrolled ? "hidden" : "absolute"}`}
+        ></div>
         <a
           className="flex flex-row items-center justify-center gap-2.25 md:gap-2"
           id="owner-div"
