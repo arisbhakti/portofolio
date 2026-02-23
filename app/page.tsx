@@ -1,6 +1,7 @@
 "use client";
 
 import AboutMe from "@/components/AboutMe";
+import ContactUs from "@/components/ContactUs";
 import Faq from "@/components/Faq";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -25,6 +26,7 @@ export default function Home() {
       <Portofolio />
       <Testimonials />
       <Faq />
+      <ContactUs />
     </main>
   );
 }
