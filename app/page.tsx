@@ -14,7 +14,7 @@ import Testimonials from "@/components/Testimonials";
 import WorkingWithMe from "@/components/WorkingWithMe";
 import { motion } from "framer-motion";
 
-const commonDuration = 1;
+const commonDuration = 1.5;
 const sectionAnimations = [
   {
     initial: { opacity: 0, y: 48, scale: 0.98 },
