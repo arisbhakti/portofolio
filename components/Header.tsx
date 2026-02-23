@@ -51,6 +51,32 @@ export default function Header() {
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
+  const handleNavClick =
+    (href: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+
+      const targetId = href.replace("#", "");
+      const targetElement = document.getElementById(targetId);
+
+      if (!targetElement) return;
+
+      const headerOffset = 96;
+      const targetTop =
+        targetElement.getBoundingClientRect().top +
+        window.scrollY -
+        headerOffset;
+
+      setIsMobileMenuOpen(false);
+
+      window.setTimeout(() => {
+        window.scrollTo({
+          top: Math.max(targetTop, 0),
+          behavior: "smooth",
+        });
+        window.history.replaceState(null, "", href);
+      }, 60);
+    };
+
   return (
     <>
       <div
@@ -58,12 +84,17 @@ export default function Header() {
           isScrolled ? "md:bg-black" : "md:bg-transparent"
         }`}
       >
-        <div className="flex flex-row items-center justify-center gap-2.25 md:gap-2">
+        <a
+          className="flex flex-row items-center justify-center gap-2.25 md:gap-2"
+          id="owner-div"
+          href="#home"
+          onClick={handleNavClick("#home")}
+        >
           <div className="w-6 md:w-10 border box-border border-white h-px"></div>
           <span className="text-primary-200 font-bold text-md md:text-xl leading-text-xl md:pl-2">
             Edwin Anderson.
           </span>
-        </div>
+        </a>
         <button
           id="menu-mobile-button"
           className="flex md:hidden"
@@ -85,6 +116,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className="text-white text-text-md font-medium leading-text-md"
+              onClick={handleNavClick(link.href)}
             >
               {link.label}
             </a>
@@ -100,12 +132,16 @@ export default function Header() {
         }`}
       >
         <div className="flex h-20 items-center justify-between border-b border-neutral-800 px-4 box-border">
-          <div className="flex flex-row items-center justify-center gap-2.25">
+          <a
+            className="flex flex-row items-center justify-center gap-2.25"
+            href="#home"
+            onClick={handleNavClick("#home")}
+          >
             <div className="w-6 border box-border border-white h-px"></div>
             <span className="text-primary-200 font-bold text-md leading-text-md">
               Edwin Anderson.
             </span>
-          </div>
+          </a>
           <button
             type="button"
             aria-label="Close mobile menu"
@@ -122,7 +158,7 @@ export default function Header() {
               key={`mobile-${link.href}`}
               href={link.href}
               className="text-white text-text-md leading-text-md"
-              onClick={closeMobileMenu}
+              onClick={handleNavClick(link.href)}
             >
               {link.label}
             </a>
