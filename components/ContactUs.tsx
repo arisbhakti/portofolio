@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { SuccessDialog } from "./dialogs/SuccessDialog";
+import { motion } from "framer-motion";
 
 type ContactField = "name" | "email" | "message";
 
@@ -206,7 +207,22 @@ export default function ContactUs() {
             </span>
             <div className="flex flex-row gap-3 items-center justify-center">
               {/* green rounded */}
-              <div className="w-3 h-3 rounded-full bg-primary-200"></div>
+              <motion.div
+                className="w-3 h-3 rounded-full bg-primary-200"
+                animate={{
+                  opacity: [1, 0.35, 1],
+                  boxShadow: [
+                    "0 0 0 0 rgba(145,255,2,0.75)",
+                    "0 0 0 7px rgba(145,255,2,0)",
+                    "0 0 0 0 rgba(145,255,2,0.75)",
+                  ],
+                }}
+                transition={{
+                  duration: 1.8,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+              ></motion.div>
               <span className="text-sm leading-text-sm font-semibold text-neutral-400 md:text-text-md md:leading-text-md">
                 Available for Work
               </span>
