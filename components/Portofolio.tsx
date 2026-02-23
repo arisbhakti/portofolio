@@ -69,7 +69,7 @@ export default function Portofolio() {
                 src={porto.image}
                 alt={`portofolio${porto.id}`}
                 fill
-                className="object-cover rounded-[20px]"
+                className="object-cover rounded-4xl"
               />
             </div>
             <h2 className="text-xl leading-text-xl font-bold text-left md:text-display-xs md:leading-display-xs text-neutral-25  ">

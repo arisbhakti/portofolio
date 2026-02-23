@@ -117,9 +117,12 @@ export default function WorkingWithMe() {
         </div>
       </div>
       <div className="w-full flex flex-row items-center justify-center">
-        <button className="w-full bg-primary-200 h-12 md:w-60 md:h-14 rounded-full text-neutral-950 font-extrabold text-sm md:text-text-md md:leading-text-md leading-text-sm shadow-[0_4px_40px_0_rgba(145,255,2,0.4)] hover:bg-primary-300 transition-colors duration-300 z-10 cursor-pointer">
+        <a
+          className="w-full bg-primary-200 h-12 md:w-60 md:h-14 rounded-full text-neutral-950 font-extrabold text-sm md:text-text-md md:leading-text-md leading-text-sm shadow-[0_4px_40px_0_rgba(145,255,2,0.4)] hover:bg-primary-300 transition-colors duration-300 z-10 cursor-pointer flex items-center justify-center"
+          href="mailto:arisscalper@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Aries%2C%20I%20want%20to%20discuss%20a%20project%20with%20you."
+        >
           HIRE ME
-        </button>
+        </a>
       </div>
     </div>
   );

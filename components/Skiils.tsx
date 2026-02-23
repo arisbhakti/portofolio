@@ -70,7 +70,7 @@ export default function Skiils() {
               <div className="relative h-[41.4px] flex-1 md:h-16">
                 <div className="pointer-events-none absolute left-0 right-0 top-1/2 -translate-y-1/2 border-t-[0.65px] border-neutral-800"></div>
                 <motion.div
-                  className="relative h-[41.4px] overflow-hidden rounded-[12.94px] bg-primary-300 px-4 py-1.25 md:h-full md:rounded-[20px] flex items-center md:px-6 md:py-2"
+                  className="relative h-[41.4px] overflow-hidden rounded-[12.94px] bg-primary-300 px-4 py-1.25 md:h-full md:rounded-4xl flex items-center md:px-6 md:py-2"
                   initial={{ width: 0 }}
                   whileInView={{ width: `${item.value}%` }}
                   transition={{

@@ -215,7 +215,7 @@ export default function ContactUs() {
         </div>
       </div>
       {/* form contact us here */}
-      <div className="relative flex h-auto min-h-[632px] flex-col gap-6 px-4 py-10 md:h-full md:min-h-0 md:flex-1 md:gap-12">
+      <div className="relative flex h-auto min-h-158 flex-col gap-6 px-4 py-10 md:h-full md:min-h-0 md:flex-1 md:gap-12">
         {/* header */}
         <div className="flex flex-col gap-2">
           <h2 className="text-text-md leading-text-md font-medium text-primary-200 md:text-lg md:leading-text-lg">

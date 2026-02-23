@@ -10,8 +10,8 @@ export default function Hero() {
         <div className="w-px bg-neutral-800 absolute left-74 h-104 z-0 md:hidden"></div>
         <div className="w-px bg-neutral-800 absolute left-49.25 h-104 z-0 md:hidden"></div>
 
-        <div className="hidden md:block md:absolute w-px bg-neutral-800 left-[375px] h-218.5 z-0" />
-        <div className="hidden md:block md:absolute w-px bg-neutral-800 left-[707px] h-218.5 z-0" />
+        <div className="hidden md:block md:absolute w-px bg-neutral-800 left-93.75 h-218.5 z-0" />
+        <div className="hidden md:block md:absolute w-px bg-neutral-800 left-176.75 h-218.5 z-0" />
 
         {/* Hero Text , text & button */}
         <div className="flex flex-col gap-10 py-10 md:py-0 z-40 md:gap-15 md:top-55.25 md:relative md:w-201.75">
