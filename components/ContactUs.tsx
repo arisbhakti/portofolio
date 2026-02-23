@@ -212,7 +212,7 @@ export default function ContactUs() {
         </div>
       </div>
       {/* form contact us here */}
-      <div className="relative flex flex-col gap-6 px-4 py-10 h-158 md:flex-1 md:gap-12 md:h-full">
+      <div className="relative flex h-auto min-h-[632px] flex-col gap-6 px-4 py-10 md:h-full md:min-h-0 md:flex-1 md:gap-12">
         {/* header */}
         <div className="flex flex-col gap-2">
           <h2 className="text-text-md leading-text-md font-medium text-primary-200 md:text-lg md:leading-text-lg">
@@ -336,7 +336,8 @@ export default function ContactUs() {
           </button>
         </form>
       </div>
-      <div className="absolute bottom-0 right-0 z-0 grid grid-cols-3 grid-rows-2 gap-0 ">
+      {/* 3 green boxes */}
+      <div className="pointer-events-none absolute bottom-0 right-0 z-0 md:z-0 grid grid-cols-3 grid-rows-2 gap-0 ">
         <div className="col-start-2 row-start-1 size-8.5 md:size-11.5 bg-primary-400" />
 
         <div className="col-start-1 row-start-2 size-8.5 md:size-11.5 bg-primary-400" />
