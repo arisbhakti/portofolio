@@ -74,13 +74,14 @@ export default function ProfessionalWork() {
             : "flex flex-row-reverse gap-3 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-6";
 
           const card = (
-            <div className="our-process-card">
-              <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between md:gap-0">
+            <div className="our-process-card group relative overflow-hidden md:hover:-translate-y-1.5 md:hover:border-primary-200/60 md:hover:shadow-[0_0_0_1px_rgba(145,255,2,0.18),0_24px_46px_-28px_rgba(145,255,2,0.75)]">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(145,255,2,0.16),transparent_50%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+              <div className="relative z-10 flex flex-col gap-1 md:flex-row md:items-center md:justify-between md:gap-0">
                 <div className="flex flex-col gap-1">
                   <span className="text-sm leading-text-sm text-neutral-400 font-normal md:text-lg md:leading-text-lg">
                     {item.year}
                   </span>
-                  <span className="font-bold text-text-md leading-text-md md:text-display-xs md:leading-display-xs">
+                  <span className="font-bold text-text-md leading-text-md transition-colors duration-300 group-hover:text-primary-100 md:text-display-xs md:leading-display-xs">
                     {item.role}
                   </span>
                 </div>
@@ -90,11 +91,11 @@ export default function ProfessionalWork() {
                     alt={item.companyAlt}
                     width={76}
                     height={32}
-                    className={item.logoClassName ?? "md:w-28.5 md:h-12"}
+                    className={`${item.logoClassName ?? "md:w-28.5 md:h-12"} transition-all duration-300 ease-out group-hover:scale-[1.04] group-hover:-translate-y-0.5 group-hover:brightness-115`}
                   />
                 </div>
               </div>
-              <div className="text-sm leading-text-sm text-neutral-400 md:text-text-md md:leading-text-md text-left">
+              <div className="relative z-10 text-sm leading-text-sm text-neutral-400 transition-colors duration-300 group-hover:text-neutral-300 md:text-text-md md:leading-text-md text-left">
                 {item.description}
               </div>
             </div>

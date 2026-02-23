@@ -182,7 +182,7 @@ export default function Testimonials() {
             >
               {visibleTestimonials.map((item, index) => (
                 <motion.div
-                  className="flex flex-col border box-border border-neutral-800 rounded-2xl p-4 gap-3 md:p-6"
+                  className="group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-neutral-800 p-4 box-border transition-all duration-300 md:p-6 md:hover:border-primary-200/55 md:hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_24px_48px_-30px_rgba(145,255,2,0.75)]"
                   key={`${item.id}-${index}`}
                   initial={{ opacity: 0, y: 12, scale: 0.985 }}
                   animate={{
@@ -195,12 +195,15 @@ export default function Testimonials() {
                       ease: [0.22, 1, 0.36, 1],
                     },
                   }}
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  whileTap={{ scale: 0.995 }}
                 >
+                  <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(145,255,2,0.16),transparent_50%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
                   {/* header */}
-                  <div className="flex flex-row justify-between">
+                  <div className="relative z-10 flex flex-row justify-between">
                     {/* name and position */}
                     <div className="flex flex-col gap-1">
-                      <h2 className="text-neutral-25 font-bold text-lg leading-text-lg md:text-xl md:leading-text-xl">
+                      <h2 className="text-neutral-25 font-bold text-lg leading-text-lg transition-colors duration-300 group-hover:text-primary-100 md:text-xl md:leading-text-xl">
                         {item.name}
                       </h2>
                       <span className="text-neutral-400 text-text-md leading-text-md md:text-text-lg md:leading-text-lg">
@@ -214,12 +217,12 @@ export default function Testimonials() {
                         alt={item.companyAlt}
                         width={76}
                         height={32}
-                        className="md:w-28.5 md:h-12"
+                        className="transition-all duration-300 ease-out group-hover:scale-[1.04] group-hover:-translate-y-0.5 group-hover:brightness-115 md:w-28.5 md:h-12"
                       />
                     </div>
                   </div>
                   {/* stars */}
-                  <div className="flex flex-row items-center">
+                  <div className="relative z-10 flex flex-row items-center transition-transform duration-300 group-hover:translate-x-0.5">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Image
                         key={i}
@@ -234,7 +237,7 @@ export default function Testimonials() {
                     ))}
                   </div>
                   {/* testimonial */}
-                  <div className="text-neutral-25 text-text-md leading-text-md font-medium md:text-text-lg md:leading-text-lg">
+                  <div className="relative z-10 text-neutral-25 text-text-md leading-text-md font-medium transition-colors duration-300 group-hover:text-neutral-100 md:text-text-lg md:leading-text-lg">
                     {item.testimonial}
                   </div>
                 </motion.div>
@@ -251,14 +254,18 @@ export default function Testimonials() {
             type="button"
             onClick={handlePrev}
             disabled={!canGoPrev}
-            className={`w-12 h-12 md:w-14 md:h-14 rounded-full border box-border border-neutral-800 flex items-center justify-center ${
-              canGoPrev ? "cursor-pointer" : "cursor-not-allowed"
+            className={`group w-12 h-12 md:w-14 md:h-14 rounded-full border box-border flex items-center justify-center transition-all duration-300 ${
+              canGoPrev
+                ? "cursor-pointer border-neutral-800 hover:-translate-y-1 hover:scale-105 hover:border-primary-200/60 hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_14px_28px_-18px_rgba(145,255,2,0.75)]"
+                : "cursor-not-allowed border-neutral-800/70"
             }`}
             aria-label="Previous testimonials"
           >
             <LuArrowLeft
-              className={`text-[20.57px] md:text-[24px] ${
-                canGoPrev ? "text-primary-200" : "text-neutral-800"
+              className={`text-[20.57px] md:text-[24px] transition-all duration-300 ${
+                canGoPrev
+                  ? "text-primary-200 group-hover:-translate-x-0.5 group-hover:drop-shadow-[0_0_8px_rgba(145,255,2,0.6)]"
+                  : "text-neutral-800"
               }`}
             />
           </button>
@@ -266,14 +273,18 @@ export default function Testimonials() {
             type="button"
             onClick={handleNext}
             disabled={!canGoNext}
-            className={`w-12 h-12 md:w-14 md:h-14 rounded-full border box-border border-neutral-800 flex items-center justify-center ${
-              canGoNext ? "cursor-pointer" : "cursor-not-allowed"
+            className={`group w-12 h-12 md:w-14 md:h-14 rounded-full border box-border flex items-center justify-center transition-all duration-300 ${
+              canGoNext
+                ? "cursor-pointer border-neutral-800 hover:-translate-y-1 hover:scale-105 hover:border-primary-200/60 hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_14px_28px_-18px_rgba(145,255,2,0.75)]"
+                : "cursor-not-allowed border-neutral-800/70"
             }`}
             aria-label="Next testimonials"
           >
             <LuArrowRight
-              className={`text-[20.57px] md:text-[24px] ${
-                canGoNext ? "text-primary-200" : "text-neutral-800"
+              className={`text-[20.57px] md:text-[24px] transition-all duration-300 ${
+                canGoNext
+                  ? "text-primary-200 group-hover:translate-x-0.5 group-hover:drop-shadow-[0_0_8px_rgba(145,255,2,0.6)]"
+                  : "text-neutral-800"
               }`}
             />
           </button>
