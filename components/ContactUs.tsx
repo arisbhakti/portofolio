@@ -1,11 +1,28 @@
 import React from "react";
 import Image from "next/image";
+import { SuccessDialog } from "./dialogs/SuccessDialog";
+import { ErrorDialog } from "./dialogs/ErrorDialog";
 export default function ContactUs() {
+  const [openSuccessDialog, setOpenSuccessDialog] = React.useState(false);
+  const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
   return (
     <div
       className="flex flex-col gap-0 w-full md:pb-30! pt-0 md:pt-20! relative md:flex-row md:px-32 md:py-20 md:gap-30.5 border-t border-t-neutral-800"
       id="contact"
     >
+      <ErrorDialog
+        open={openErrorDialog}
+        onClose={() => {
+          setOpenErrorDialog(false);
+          setOpenSuccessDialog(true);
+        }}
+      />
+      <SuccessDialog
+        open={openSuccessDialog}
+        onClose={() => {
+          setOpenSuccessDialog(false);
+        }}
+      />
       {/* 3 boxes */}
       <div className="absolute top-0 left-0 z-30 grid grid-cols-3 grid-rows-2 gap-0">
         <div className="col-start-1 row-start-1 size-8.5 md:size-11.5 bg-primary-400" />
@@ -148,7 +165,10 @@ export default function ContactUs() {
               className="px-4 py-2 rounded-2xl border box-border border-neutral-800 bg-black text-white focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-transparent h-30 md:h-45"
             />
           </div>
-          <button className="w-full bg-primary-200 h-12 md:h-14 rounded-full text-neutral-950 font-extrabold text-sm md:text-text-md md:leading-text-md leading-text-sm shadow-[0_4px_40px_0_rgba(145,255,2,0.4)] hover:bg-primary-300 transition-colors duration-300 z-10 cursor-pointer">
+          <button
+            onClick={() => setOpenErrorDialog(true)}
+            className="w-full bg-primary-200 h-12 md:h-14 rounded-full text-neutral-950 font-extrabold text-sm md:text-text-md md:leading-text-md leading-text-sm shadow-[0_4px_40px_0_rgba(145,255,2,0.4)] hover:bg-primary-300 transition-colors duration-300 z-10 cursor-pointer"
+          >
             Send Message
           </button>
           <div className="absolute bottom-0 right-0 z-0 grid grid-cols-3 grid-rows-2 gap-0 ">
