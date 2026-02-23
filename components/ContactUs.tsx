@@ -56,7 +56,7 @@ export default function ContactUs() {
 
       return "";
     },
-    []
+    [],
   );
 
   const validateForm = React.useCallback(
@@ -68,13 +68,13 @@ export default function ContactUs() {
       });
       return nextErrors;
     },
-    [validateField]
+    [validateField],
   );
 
   const handleInputChange =
     (field: ContactField) =>
     (
-      event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+      event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ): void => {
       const nextValue = event.target.value;
       setFormValues((prev) => ({ ...prev, [field]: nextValue }));
@@ -334,13 +334,13 @@ export default function ContactUs() {
           >
             Send Message
           </button>
-          <div className="absolute bottom-0 right-0 z-0 grid grid-cols-3 grid-rows-2 gap-0 ">
-            <div className="col-start-2 row-start-1 size-8.5 md:size-11.5 bg-primary-400" />
-
-            <div className="col-start-1 row-start-2 size-8.5 md:size-11.5 bg-primary-400" />
-            <div className="col-start-3 row-start-2 size-8.5 md:size-11.5 bg-primary-400" />
-          </div>
         </form>
+      </div>
+      <div className="absolute bottom-0 right-0 z-0 grid grid-cols-3 grid-rows-2 gap-0 ">
+        <div className="col-start-2 row-start-1 size-8.5 md:size-11.5 bg-primary-400" />
+
+        <div className="col-start-1 row-start-2 size-8.5 md:size-11.5 bg-primary-400" />
+        <div className="col-start-3 row-start-2 size-8.5 md:size-11.5 bg-primary-400" />
       </div>
     </div>
   );
