@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const skillsIcons = [
   { src: "/icon-js.svg", alt: "js" },
@@ -66,9 +69,16 @@ export default function Skiils() {
             >
               <div className="relative h-[41.4px] flex-1 md:h-16">
                 <div className="pointer-events-none absolute left-0 right-0 top-1/2 -translate-y-1/2 border-t-[0.65px] border-neutral-800"></div>
-                <div
+                <motion.div
                   className="relative h-[41.4px] overflow-hidden rounded-[12.94px] bg-primary-300 px-4 py-1.25 md:h-full md:rounded-[20px] flex items-center md:px-6 md:py-2"
-                  style={{ width: `${item.value}%` }}
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${item.value}%` }}
+                  transition={{
+                    duration: 0.95,
+                    delay: index * 0.12,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  viewport={{ once: true, amount: 0.65 }}
                 >
                   <div
                     className="pointer-events-none absolute inset-0"
@@ -80,7 +90,7 @@ export default function Skiils() {
                   <span className="relative z-10 font-semibold text-sm leading-text-sm text-neutral-25 md:text-lg md:leading-text-lg">
                     {item.label}
                   </span>
-                </div>
+                </motion.div>
               </div>
               <span className="w-13 text-right text-sm leading-text-sm font-semibold md:text-xl md:leading-text-xl text-white">
                 {item.value}%
