@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const skillsIcons = [
   { src: "/icon-js.svg", alt: "js" },
@@ -25,10 +25,17 @@ const progressItems = [
 ];
 
 export default function Skiils() {
+  const skillsRef = React.useRef<HTMLDivElement | null>(null);
+  const isSkillsInView = useInView(skillsRef, {
+    amount: 0.05,
+    once: true,
+  });
+
   return (
     <div
       className="common-padding flex flex-col gap-10 md:flex-row md:gap-14.5 justify-center items-center"
       id="skills"
+      ref={skillsRef}
     >
       {/* Skiils Icons */}
       <div className="flex flex-col gap-6 md:gap-14.5 md:flex-1">
@@ -78,13 +85,14 @@ export default function Skiils() {
                 <motion.div
                   className="relative flex h-[41.4px] items-center overflow-hidden rounded-[12.94px] bg-primary-300 px-4 py-1.25 transition-all duration-300 group-hover:brightness-110 group-hover:shadow-[0_0_0_1px_rgba(145,255,2,0.22),0_14px_28px_-20px_rgba(145,255,2,0.85)] md:h-full md:rounded-4xl md:px-6 md:py-2"
                   initial={{ width: 0 }}
-                  whileInView={{ width: `${item.value}%` }}
+                  animate={{
+                    width: isSkillsInView ? `${item.value}%` : 0,
+                  }}
                   transition={{
-                    duration: 0.95,
-                    delay: index * 0.12,
+                    duration: 0.58,
+                    delay: index * 0.03,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  viewport={{ once: true, amount: 0.65 }}
                   style={{ originX: 0 }}
                 >
                   <div
