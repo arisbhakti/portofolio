@@ -112,7 +112,7 @@ export default function Hero() {
               className="inline-block md:w-8 md:h-8"
             />
           </div>
-          <div className="font-semibold leading-text-md text-text-md md:text-xl md:leading-text-lg">
+          <div className="font-semibold leading-text-md text-text-md md:text-xl md:leading-text-lg text-neutral-25">
             Many Client Trust with me
           </div>
         </Card>
