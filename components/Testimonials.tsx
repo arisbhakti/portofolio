@@ -4,6 +4,8 @@ import Image from "next/image";
 import { LuArrowRight, LuArrowLeft } from "react-icons/lu";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
 
 const testimonialsSlideVariants = {
   enter: (currentDirection: number) => ({
@@ -182,7 +184,6 @@ export default function Testimonials() {
             >
               {visibleTestimonials.map((item, index) => (
                 <motion.div
-                  className="group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-neutral-800 p-4 box-border transition-all duration-300 md:p-6 md:hover:border-primary-200/55 md:hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_24px_48px_-30px_rgba(145,255,2,0.75)]"
                   key={`${item.id}-${index}`}
                   initial={{ opacity: 0, y: 12, scale: 0.985 }}
                   animate={{
@@ -198,48 +199,50 @@ export default function Testimonials() {
                   whileHover={{ y: -6, scale: 1.01 }}
                   whileTap={{ scale: 0.995 }}
                 >
-                  <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(145,255,2,0.16),transparent_50%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                  {/* header */}
-                  <div className="relative z-10 flex flex-row justify-between">
-                    {/* name and position */}
-                    <div className="flex flex-col gap-1">
-                      <h2 className="text-neutral-25 font-bold text-lg leading-text-lg transition-colors duration-300 group-hover:text-primary-100 md:text-xl md:leading-text-xl">
-                        {item.name}
-                      </h2>
-                      <span className="text-neutral-400 text-text-md leading-text-md md:text-text-lg md:leading-text-lg">
-                        {item.position}
-                      </span>
+                  <Card className="group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-neutral-800 p-4 box-border transition-all duration-300 md:p-6 md:hover:border-primary-200/55 md:hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_24px_48px_-30px_rgba(145,255,2,0.75)] bg-transparent shadow-none text-inherit">
+                    <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(145,255,2,0.16),transparent_50%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+                    {/* header */}
+                    <div className="relative z-10 flex flex-row justify-between">
+                      {/* name and position */}
+                      <div className="flex flex-col gap-1">
+                        <h2 className="text-neutral-25 font-bold text-lg leading-text-lg transition-colors duration-300 group-hover:text-primary-100 md:text-xl md:leading-text-xl">
+                          {item.name}
+                        </h2>
+                        <span className="text-neutral-400 text-text-md leading-text-md md:text-text-lg md:leading-text-lg">
+                          {item.position}
+                        </span>
+                      </div>
+                      {/* company logo */}
+                      <div className="flex items-center">
+                        <Image
+                          src={item.companyLogo}
+                          alt={item.companyAlt}
+                          width={76}
+                          height={32}
+                          className="transition-all duration-300 ease-out group-hover:scale-[1.04] group-hover:-translate-y-0.5 group-hover:brightness-115 md:w-28.5 md:h-12"
+                        />
+                      </div>
                     </div>
-                    {/* company logo */}
-                    <div className="flex items-center">
-                      <Image
-                        src={item.companyLogo}
-                        alt={item.companyAlt}
-                        width={76}
-                        height={32}
-                        className="transition-all duration-300 ease-out group-hover:scale-[1.04] group-hover:-translate-y-0.5 group-hover:brightness-115 md:w-28.5 md:h-12"
-                      />
+                    {/* stars */}
+                    <div className="relative z-10 flex flex-row items-center transition-transform duration-300 group-hover:translate-x-0.5">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Image
+                          key={i}
+                          src="/star-yellow.svg"
+                          alt="star"
+                          width={20}
+                          height={20}
+                          className={`md:h-8 md:w-8 ${
+                            i < item.rating ? "opacity-100" : "opacity-30"
+                          }`}
+                        />
+                      ))}
                     </div>
-                  </div>
-                  {/* stars */}
-                  <div className="relative z-10 flex flex-row items-center transition-transform duration-300 group-hover:translate-x-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Image
-                        key={i}
-                        src="/star-yellow.svg"
-                        alt="star"
-                        width={20}
-                        height={20}
-                        className={`md:h-8 md:w-8 ${
-                          i < item.rating ? "opacity-100" : "opacity-30"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  {/* testimonial */}
-                  <div className="relative z-10 text-neutral-25 text-text-md leading-text-md font-medium transition-colors duration-300 group-hover:text-neutral-100 md:text-text-lg md:leading-text-lg">
-                    {item.testimonial}
-                  </div>
+                    {/* testimonial */}
+                    <div className="relative z-10 text-neutral-25 text-text-md leading-text-md font-medium transition-colors duration-300 group-hover:text-neutral-100 md:text-text-lg md:leading-text-lg">
+                      {item.testimonial}
+                    </div>
+                  </Card>
                 </motion.div>
               ))}
             </motion.div>
@@ -250,11 +253,13 @@ export default function Testimonials() {
           className="flex flex-row gap-4 items-center justify-center"
           id="navigation-buttons"
         >
-          <button
+          <Button
             type="button"
             onClick={handlePrev}
             disabled={!canGoPrev}
-            className={`group w-12 h-12 md:w-14 md:h-14 rounded-full border box-border flex items-center justify-center transition-all duration-300 ${
+            variant="ghost"
+            size="icon"
+            className={`group w-12 h-12 md:w-14 md:h-14 rounded-full border box-border flex items-center justify-center transition-all duration-300 hover:bg-transparent ${
               canGoPrev
                 ? "cursor-pointer border-neutral-800 hover:-translate-y-1 hover:scale-105 hover:border-primary-200/60 hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_14px_28px_-18px_rgba(145,255,2,0.75)]"
                 : "cursor-not-allowed border-neutral-800/70"
@@ -268,12 +273,14 @@ export default function Testimonials() {
                   : "text-neutral-800"
               }`}
             />
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             onClick={handleNext}
             disabled={!canGoNext}
-            className={`group w-12 h-12 md:w-14 md:h-14 rounded-full border box-border flex items-center justify-center transition-all duration-300 ${
+            variant="ghost"
+            size="icon"
+            className={`group w-12 h-12 md:w-14 md:h-14 rounded-full border box-border flex items-center justify-center transition-all duration-300 hover:bg-transparent ${
               canGoNext
                 ? "cursor-pointer border-neutral-800 hover:-translate-y-1 hover:scale-105 hover:border-primary-200/60 hover:shadow-[0_0_0_1px_rgba(145,255,2,0.2),0_14px_28px_-18px_rgba(145,255,2,0.75)]"
                 : "cursor-not-allowed border-neutral-800/70"
@@ -287,7 +294,7 @@ export default function Testimonials() {
                   : "text-neutral-800"
               }`}
             />
-          </button>
+          </Button>
         </div>
       </div>
     </div>

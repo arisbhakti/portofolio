@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { Card } from "./ui/card";
+import { Separator } from "./ui/separator";
 
 const services = [
   {
@@ -59,11 +61,14 @@ export default function Services() {
         id="main-services"
       >
         {services.map((service) => (
-          <div className="flex flex-col gap-3" key={service.id}>
+          <Card
+            className="flex flex-col gap-3 border-0 bg-transparent p-0 shadow-none text-inherit"
+            key={service.id}
+          >
             <span className="font-semibold text-text-md leading-text-md text-neutral-400 md:text-xl md:leading-text-xl">
               {service.id}
             </span>
-            <hr className="border-neutral-800" />
+            <Separator className="bg-neutral-800" />
             <Image
               src={service.icon}
               alt={service.iconAlt}
@@ -76,7 +81,7 @@ export default function Services() {
             <p className="font-normal text-text-md leading-text-md text-neutral-400 md:text-xl md:leading-text-xl">
               {service.description}
             </p>
-          </div>
+          </Card>
         ))}
       </div>
     </div>

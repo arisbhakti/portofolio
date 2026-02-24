@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 
 const WhyChooseMeItems: string[] = [
   "React Expert",
@@ -67,13 +69,13 @@ export default function WorkingWithMe() {
                 </p>
               </div>
               {index != WhyChooseMeItems.length - 1 && (
-                <hr className="border-t border-neutral-800" />
+                <Separator className="bg-neutral-800" />
               )}
             </div>
           ))}
         </div>
         {/* divider mobile */}
-        <hr className="border-t border-neutral-800 md:hidden" />
+        <Separator className="bg-neutral-800 md:hidden" />
         {/* Another Talent DIV */}
         <div className="flex flex-col gap-8 flex-1">
           <h2 className="font-bold text-xl leading-text-xl text-center md:text-display-sm md:leading-display-sm">
@@ -110,19 +112,21 @@ export default function WorkingWithMe() {
                 </p>
               </div>
               {index != WhyChooseMeItems.length - 1 && (
-                <hr className="border-t border-neutral-800" />
+                <Separator className="bg-neutral-800" />
               )}
             </div>
           ))}
         </div>
       </div>
       <div className="w-full flex flex-row items-center justify-center">
-        <a
+        <Button
+          asChild
           className="w-full bg-primary-200 h-12 md:w-60 md:h-14 rounded-full text-neutral-950 font-extrabold text-sm md:text-text-md md:leading-text-md leading-text-sm shadow-[0_4px_40px_0_rgba(145,255,2,0.4)] hover:bg-primary-300 transition-colors duration-300 z-10 cursor-pointer flex items-center justify-center"
-          href="mailto:arisscalper@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Aries%2C%20I%20want%20to%20discuss%20a%20project%20with%20you."
         >
-          HIRE ME
-        </a>
+          <a href="mailto:arisscalper@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Aries%2C%20I%20want%20to%20discuss%20a%20project%20with%20you.">
+            HIRE ME
+          </a>
+        </Button>
       </div>
     </div>
   );

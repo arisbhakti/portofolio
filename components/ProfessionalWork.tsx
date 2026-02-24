@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { Card } from "./ui/card";
+import { Separator } from "./ui/separator";
 
 type TimelineItem = {
   id: number;
@@ -74,7 +76,7 @@ export default function ProfessionalWork() {
             : "flex flex-row-reverse gap-3 md:grid md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] md:gap-x-6";
 
           const card = (
-            <div className="our-process-card group relative overflow-hidden md:hover:-translate-y-1.5 md:hover:border-primary-200/60 md:hover:shadow-[0_0_0_1px_rgba(145,255,2,0.18),0_24px_46px_-28px_rgba(145,255,2,0.75)]">
+            <Card className="our-process-card group relative overflow-hidden md:hover:-translate-y-1.5 md:hover:border-primary-200/60 md:hover:shadow-[0_0_0_1px_rgba(145,255,2,0.18),0_24px_46px_-28px_rgba(145,255,2,0.75)] bg-transparent shadow-none text-inherit">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(145,255,2,0.16),transparent_50%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               <div className="relative z-10 flex flex-col gap-1 md:flex-row md:items-center md:justify-between md:gap-0">
                 <div className="flex flex-col gap-1">
@@ -98,7 +100,7 @@ export default function ProfessionalWork() {
               <div className="relative z-10 text-sm leading-text-sm text-neutral-400 transition-colors duration-300 group-hover:text-neutral-300 md:text-text-md md:leading-text-md text-left">
                 {item.description}
               </div>
-            </div>
+            </Card>
           );
 
           return (
@@ -111,16 +113,18 @@ export default function ProfessionalWork() {
 
               <div className="relative flex w-10 md:w-12 shrink-0 items-center justify-center">
                 {!isFirst && (
-                  <div
-                    aria-hidden
+                  <Separator
+                    orientation="vertical"
+                    decorative
                     className="absolute left-1/2 -top-2 bottom-1/2 w-px bg-neutral-900 md:top-0"
-                  ></div>
+                  />
                 )}
                 {!isLast && (
-                  <div
-                    aria-hidden
+                  <Separator
+                    orientation="vertical"
+                    decorative
                     className="absolute left-1/2 top-1/2 -bottom-2 w-px bg-neutral-900 md:bottom-0"
-                  ></div>
+                  />
                 )}
 
                 <div className="relative z-10 flex justify-center items-center bg-black w-10 h-10 md:w-12 md:h-12 mx-auto rounded-full border box-border border-neutral-800 text-primary-200 font-bold text-sm leading-text-sm md:text-text-md md:leading-text-md">

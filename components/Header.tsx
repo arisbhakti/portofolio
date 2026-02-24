@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -100,12 +101,14 @@ export default function Header() {
           </span>
           <span className="pointer-events-none absolute -bottom-0.75 left-1/2 h-px w-0 -translate-x-1/2 bg-primary-200 transition-all duration-300 ease-out group-hover/owner:w-[calc(100%-24px)]"></span>
         </a>
-        <button
+        <Button
           id="menu-mobile-button"
-          className="flex md:hidden"
+          className="flex h-auto w-auto p-0 rounded-none md:hidden hover:bg-transparent"
           type="button"
           aria-label="Open mobile menu"
           onClick={() => setIsMobileMenuOpen(true)}
+          variant="ghost"
+          size="icon"
         >
           <Image
             src="/menu-mobile.svg"
@@ -114,7 +117,7 @@ export default function Header() {
             height={24}
             className=""
           />
-        </button>
+        </Button>
         <div className="hidden md:flex flex-row items-center gap-3">
           {navLinks.map((link) => (
             <a
@@ -149,14 +152,16 @@ export default function Header() {
               Edwin Anderson.
             </span>
           </a>
-          <button
+          <Button
             type="button"
             aria-label="Close mobile menu"
             onClick={closeMobileMenu}
-            className="text-white text-[36px] leading-none"
+            className="h-auto w-auto p-0 rounded-none text-white text-[36px] leading-none hover:bg-transparent"
+            variant="ghost"
+            size="icon"
           >
             &times;
-          </button>
+          </Button>
         </div>
 
         <nav className="flex flex-col gap-4 px-6 pt-4">

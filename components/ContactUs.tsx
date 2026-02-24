@@ -2,6 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { SuccessDialog } from "./dialogs/SuccessDialog";
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 type ContactField = "name" | "email" | "message";
 
@@ -255,7 +258,7 @@ export default function ContactUs() {
             >
               Name
             </label>
-            <input
+            <Input
               type="text"
               id="name"
               name="name"
@@ -288,7 +291,7 @@ export default function ContactUs() {
             >
               Email
             </label>
-            <input
+            <Input
               type="email"
               id="email"
               name="email"
@@ -322,7 +325,7 @@ export default function ContactUs() {
             >
               Message
             </label>
-            <textarea
+            <Textarea
               id="message"
               name="message"
               value={formValues.message}
@@ -347,12 +350,12 @@ export default function ContactUs() {
               </p>
             )}
           </div>
-          <button
+          <Button
             type="submit"
             className="w-full bg-primary-200 h-12 md:h-14 rounded-full text-neutral-950 font-extrabold text-sm md:text-text-md md:leading-text-md leading-text-sm shadow-[0_4px_40px_0_rgba(145,255,2,0.4)] hover:bg-primary-300 transition-colors duration-300 z-10 cursor-pointer"
           >
             Send Message
-          </button>
+          </Button>
         </form>
       </div>
       {/* 3 green boxes */}

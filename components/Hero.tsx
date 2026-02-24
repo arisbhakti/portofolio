@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
 export default function Hero() {
   return (
     <div
@@ -33,13 +35,17 @@ export default function Hero() {
               user-friendly web applications
             </div>
           </div>
-          <a
-            href="mailto:arisscalper@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Aries%2C%20I%20want%20to%20discuss%20a%20project%20with%20you."
+          <Button
+            asChild
             className="inline-flex w-full items-center justify-center bg-primary-200 h-12 md:w-75 md:h-14 rounded-full text-neutral-950 font-extrabold text-sm md:text-text-md md:leading-text-md leading-text-sm shadow-[0_4px_40px_0_rgba(145,255,2,0.4)] hover:bg-primary-300 transition-colors duration-300 z-10 cursor-pointer"
-            aria-label="Hire me via email"
           >
-            HIRE ME
-          </a>
+            <a
+              href="mailto:arisscalper@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Aries%2C%20I%20want%20to%20discuss%20a%20project%20with%20you."
+              aria-label="Hire me via email"
+            >
+              HIRE ME
+            </a>
+          </Button>
         </div>
       </div>
 
@@ -65,7 +71,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-20 pointer-events-none bg-linear-to-b from-black/40 to-black" />
 
         {/* Card Feedback */}
-        <div className="absolute w-87.25 md:w-79 top-[324.38px] md:top-153 px-4 py-4 md:px-5 md:py-5 bg-black flex flex-col gap-2 border border-neutral-800 box-border rounded-2xl mx-auto z-40 left-1/2 -translate-x-1/2 text-left items-start">
+        <Card className="absolute w-87.25 md:w-79 top-[324.38px] md:top-153 px-4 py-4 md:px-5 md:py-5 bg-black flex flex-col gap-2 border border-neutral-800 box-border rounded-2xl mx-auto z-40 left-1/2 -translate-x-1/2 text-left items-start shadow-none">
           <div className="text-neutral-25 font-bold text-2xl leading-display-xs text-display-xl">
             5.0
           </div>
@@ -109,7 +115,7 @@ export default function Hero() {
           <div className="font-semibold leading-text-md text-text-md md:text-xl md:leading-text-lg">
             Many Client Trust with me
           </div>
-        </div>
+        </Card>
 
         {/* 3 boxes */}
         <div className="absolute top-60.5 z-30 grid grid-cols-3 grid-rows-2 gap-0 md:hidden">

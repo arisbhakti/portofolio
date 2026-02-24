@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Separator } from "./ui/separator";
 
 const faqs = [
   {
@@ -73,7 +74,7 @@ export default function Faq() {
                 </p>
               </div>
               {index !== faqs.length - 1 && (
-                <hr className="border box-border border-neutral-800" />
+                <Separator className="bg-neutral-800" />
               )}
             </div>
           ))}
@@ -104,7 +105,7 @@ export default function Faq() {
                 </p>
               </div>
 
-              <div className="bg-neutral-800"></div>
+              <Separator orientation="vertical" className="h-full bg-neutral-800" />
 
               <div className="flex flex-col gap-6">
                 {row[1] ? (
