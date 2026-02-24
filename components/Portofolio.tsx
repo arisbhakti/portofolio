@@ -61,13 +61,22 @@ export default function Portofolio() {
         </h1>
       </div>
       {/* PORTOFOLIO div */}
-      <div className="flex flex-col gap-8 md:grid md:grid-cols-3 md:gap-x-5 md:gap-y-12">
+      <div className="flex flex-col gap-8 md:grid md:grid-cols-3 md:gap-x-5 md:gap-y-12 md:relative">
         {/* single portofolio */}
-        {portofolioData.map((porto) => (
+        {portofolioData.map((porto, index) => (
           <Card
             key={porto.id}
             className="group relative flex flex-col gap-3 rounded-4xl border border-transparent p-1 transition-all duration-300 md:gap-4 md:hover:-translate-y-1.5 md:hover:border-primary-200/35 md:hover:bg-[linear-gradient(180deg,rgba(145,255,2,0.08),rgba(145,255,2,0))] md:hover:shadow-[0_0_0_1px_rgba(145,255,2,0.12),0_26px_48px_-30px_rgba(145,255,2,0.7)] bg-transparent shadow-none text-inherit"
           >
+            {index === 1 && (
+              <a
+                className="top-59 w-25 h-25 absolute hidden md:flex bg-neutral-25 z-30 rounded-full items-center justify-center text-lg font-bold text-neutral-950 leading-text-lg left-1/2 -translate-x-1/2 hover:bg-primary-200/90 transition-all duration-300 hover:scale-110"
+                href="https://portofolio-new-sable-nu.vercel.app/"
+                target="_blank"
+              >
+                VISIT
+              </a>
+            )}
             <div className="relative w-full h-67.5 overflow-hidden rounded-4xl border border-neutral-900/70 transition-colors duration-300 group-hover:border-primary-200/40 md:h-71">
               <span className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_80%_15%,rgba(145,255,2,0.18),transparent_45%)] opacity-0 transition-opacity duration-400 group-hover:opacity-100"></span>
               <Image
